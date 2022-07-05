@@ -1,0 +1,2 @@
+# BusinessCentralExercises
+ General Exercises
