@@ -7,7 +7,7 @@ page 50101 "CRONUS Course List"
     SourceTable = "CRONUS Course";
     Editable = false;
     CardPageId = "CRONUS Course Card";
-    
+
     layout
     {
         area(Content)
@@ -26,18 +26,18 @@ page 50101 "CRONUS Course List"
                 {
                     ApplicationArea = All;
                 }
-                                field("Price"; "Price")
+                field("Price"; "Price")
                 {
                     ApplicationArea = All;
                 }
-                                field("Insturcor Name"; "Instructor Name")
+                field("Insturcor Name"; "Instructor Name")
                 {
                     ApplicationArea = All;
                 }
             }
         }
     }
-    
+
     actions
     {
         area(Processing)
@@ -45,15 +45,15 @@ page 50101 "CRONUS Course List"
             action(ActionName)
             {
                 ApplicationArea = All;
-                
+
                 trigger OnAction()
                 begin
-                    
+
                 end;
             }
         }
     }
-    
+
     var
         myInt: Integer;
 }

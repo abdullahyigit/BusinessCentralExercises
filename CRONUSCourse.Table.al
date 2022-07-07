@@ -1,8 +1,9 @@
 table 50100 "CRONUS Course"
 {
     DataClassification = CustomerContent;
-    LookupPageId = "CRONUS Course List";
     DrillDownPageId = "CRONUS Course List";
+    LookupPageId = "CRONUS Course List";
+
 
     fields
     {
@@ -15,11 +16,6 @@ table 50100 "CRONUS Course"
         {
             DataClassification = CustomerContent;
             Caption = 'Name';
-        }
-        field(140; "Description"; Text[100])
-        {
-            DataClassification = CustomerContent;
-            Caption = 'Description';
         }
 
         field(40; "Type"; Option)
@@ -66,6 +62,11 @@ table 50100 "CRONUS Course"
             Editable = false;
             FieldClass = FlowField;
             CalcFormula = lookup(Resource.Name where("No." = field("Instructor Code")));
+        }
+        field(140; "Description"; Text[50])
+        {
+            DataClassification = CustomerContent;
+            Caption = 'Description';
         }
     }
 
