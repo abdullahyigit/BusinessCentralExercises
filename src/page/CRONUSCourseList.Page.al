@@ -14,23 +14,23 @@ page 50101 "CRONUS Course List"
         {
             repeater(General)
             {
-                field("Code"; "Code")
+                field("Code"; Rec."Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Name"; "Name")
+                field("Name"; Rec."Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Description"; "Description")
+                field("Description"; Rec."Description")
                 {
                     ApplicationArea = All;
                 }
-                field("Price"; "Price")
+                field("Price"; Rec."Price")
                 {
                     ApplicationArea = All;
                 }
-                field("Insturcor Name"; "Instructor Name")
+                field("Insturcor Name"; Rec."Instructor Name")
                 {
                     ApplicationArea = All;
                 }

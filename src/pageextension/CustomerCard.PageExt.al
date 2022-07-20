@@ -45,7 +45,7 @@ pageextension 50100 "CustomerCard" extends "Customer Card"
         end;
 
         if GuiAllowed() then
-            if not Confirm(AreYouSureQst, false, FieldCaption("Credit Limit (LCY)"), CreditLimitCalculated) then
+            if not Confirm(AreYouSureQst, false, Rec.FieldCaption("Credit Limit (LCY)"), CreditLimitCalculated) then
                 exit;
 
         CreditLimitActual := CreditLimitCalculated;

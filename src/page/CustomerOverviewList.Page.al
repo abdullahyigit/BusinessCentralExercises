@@ -13,32 +13,32 @@ page 50102 "Customer Overview List"
         {
             repeater(General)
             {
-                field("Entry No."; "Entry No.")
+                field("Entry No."; Rec."Entry No.")
                 {
                     Caption = 'Entry No.';
                     ApplicationArea = All;
                 }
-                field("Customer No."; "Customer No.")
+                field("Customer No."; Rec."Customer No.")
                 {
                     Caption = 'Customer No.';
                     ApplicationArea = All;
                 }
-                field("Customer Name"; "Customer Name")
+                field("Customer Name"; Rec."Customer Name")
                 {
                     Caption = 'Customer Name';
                     ApplicationArea = All;
                 }
-                field("Source Code"; "Source Code")
+                field("Source Code"; Rec."Source Code")
                 {
                     Caption = 'Source Code';
                     ApplicationArea = All;
                 }
-                field("Amount"; "Amount")
+                field("Amount"; Rec."Amount")
                 {
                     Caption = 'Decimal';
                     ApplicationArea = All;
                 }
-                field("LastRunDate"; "LastRunDate")
+                field("LastRunDate"; Rec."LastRunDate")
                 {
                     Caption = 'LastRunDate';
                     ApplicationArea = All;
@@ -59,7 +59,7 @@ page 50102 "Customer Overview List"
 
                 trigger OnAction()
                 var
-                    UpdateCustomerOverview : Codeunit "Customer Overview Mgmt";
+                    UpdateCustomerOverview: Codeunit "Customer Overview Mgmt";
                 begin
                     UpdateCustomerOverview.Run();
                 end;

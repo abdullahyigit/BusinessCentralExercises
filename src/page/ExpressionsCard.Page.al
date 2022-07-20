@@ -45,14 +45,14 @@ page 50111 "Expressions Card"
     {
         area(Processing)
         {
-    
+
             action(Execute)
             {
                 Caption = 'Execute';
                 Image = ExecuteBatch;
                 ApplicationArea = All;
 
-                
+
                 trigger OnAction()
                 begin
                     Result := Value1 > Value2;

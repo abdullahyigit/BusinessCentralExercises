@@ -13,15 +13,15 @@ page 50100 "CRONUS Course Card"
             group(General)
             {
                 Caption = 'General';
-                field("Code"; "Code")
+                field("Code"; Rec."Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Name"; "Name")
+                field("Name"; Rec."Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Description"; "Description")
+                field("Description"; Rec."Description")
                 {
                     ApplicationArea = All;
                 }
@@ -30,27 +30,27 @@ page 50100 "CRONUS Course Card"
             group(Details)
             {
                 Caption = 'Details';
-                field("Duration"; "Duration")
+                field("Duration"; Rec."Duration")
                 {
                     ApplicationArea = All;
                 }
-                field("Price"; "Price")
+                field("Price"; Rec."Price")
                 {
                     ApplicationArea = All;
                 }
-                field("Type"; "Type")
+                field("Type"; Rec."Type")
                 {
                     ApplicationArea = All;
                 }
-                field("Active"; "Active")
+                field("Active"; Rec."Active")
                 {
                     ApplicationArea = All;
                 }
-                field("Insturcor Code"; "Instructor Code")
+                field("Insturcor Code"; Rec."Instructor Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Insturcor Name"; "Instructor Name")
+                field("Insturcor Name"; Rec."Instructor Name")
                 {
                     ApplicationArea = All;
                 }
