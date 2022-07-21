@@ -6,6 +6,7 @@ page 70103 "Seminar List"
     SourceTable = Seminar;
     CardPageId = "Seminar Card";
     Editable = false;
+    Caption = 'Seminar List';
 
     layout
     {
