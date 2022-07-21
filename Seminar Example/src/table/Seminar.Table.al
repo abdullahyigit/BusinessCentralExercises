@@ -1,5 +1,6 @@
 table 70101 "Seminar"
 {
+    Caption = 'Seminar';
     fields
     {
         field(1; "No."; Code[20])
