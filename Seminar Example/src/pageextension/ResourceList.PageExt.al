@@ -8,7 +8,7 @@ pageextension 70200 "ResourceList" extends "Resource List"
             {
                 ApplicationArea = all;
             }
-            field("Maximum Participant"; Rec."Maximum Participant")
+            field("Maximum Participanst"; Rec."Maximum Participants")
             {
                 ApplicationArea = all;
                 Visible = ShowMaxParticipants;

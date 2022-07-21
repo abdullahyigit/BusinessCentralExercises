@@ -18,7 +18,7 @@ pageextension 70400 "ResourceCard" extends "Resource Card"
         {
             group(Room)
             {
-                field("Maximum Participant"; Rec."Maximum Participant")
+                field("Maximum Participants"; Rec."Maximum Participants")
                 {
                     ApplicationArea = all;
                 }

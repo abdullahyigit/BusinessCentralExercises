@@ -8,9 +8,9 @@ tableextension 70300 "Resource" extends Resource
             OptionMembers = "Internal","External";
             Caption = 'Internal/External';
         }
-        field(50151; "Maximum Participant"; Integer)
+        field(50151; "Maximum Participants"; Integer)
         {
-            Caption = 'Maximum Participant';
+            Caption = 'Maximum Participants';
         }
         field(50152; "Quantitiy Per Day"; Decimal)
         {
