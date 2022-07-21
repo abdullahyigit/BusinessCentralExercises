@@ -8,12 +8,13 @@
             "environmentType": "Sandbox",
             "environmentName": "AbdullahYigit",
             "tenant": "bab5cdd3-8af5-4117-ba71-ff44f9cff12d",
-            "startupObjectId": 70101,
+            "startupObjectId": 70103,
             "startupObjectType": "Page",
             "breakOnError": true,
             "launchBrowser": true,
             "enableLongRunningSqlStatements": true,
-            "enableSqlInformationDebugger": true
+            "enableSqlInformationDebugger": true,
+            "schemaUpdateMode": "ForceSync"
         }
     ]
 }
