@@ -127,10 +127,7 @@ table 50166 "Seminar Registration Line"
             trigger OnValidate()
             var
             begin
-
                 VALIDATE("Line Discount %");
-
-
             end;
         }
         field(11; "Line Discount %"; Decimal)
@@ -143,15 +140,13 @@ table 50166 "Seminar Registration Line"
             trigger OnValidate()
             var
             begin
-
                 IF "Seminar Price" = 0 THEN BEGIN
                     "Line Discount Amount" := 0;
                 END ELSE BEGIN
                     GLSetup.GET;
                     "Line Discount Amount" := ROUND("Line Discount %" * "Seminar Price" * 0.01, GLSetup."Amount Rounding Precision");
                 END;
-                UpdateAmount;
-
+                UpdateAmount();
             end;
 
         }

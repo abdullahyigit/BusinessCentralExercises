@@ -342,6 +342,7 @@ table 70103 "Seminar Registration Header"
 
     trigger OnDelete()
     begin
+        TESTFIELD(Status, Status::Canceled);
         BEGIN
             SeminarRegLine.RESET;
             SeminarRegLine.SETRANGE("Document No.", "No.");

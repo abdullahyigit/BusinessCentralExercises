@@ -26,6 +26,12 @@ table 70105 "Seminar Charge"
             OptionCaption = 'Resource,G/L Account';
             OptionMembers = "Resource","G/L Account";
             Caption = 'Type';
+            trigger OnValidate()
+            begin
+                IF Type <> xRec.Type THEN BEGIN
+                    Description := '';
+                END;
+            end;
 
         }
         field(4; "No."; Code[20])
