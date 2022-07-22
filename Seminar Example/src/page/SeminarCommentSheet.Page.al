@@ -17,36 +17,20 @@ page 71000 "Seminar Comment Sheet"
                 field("Date"; Rec.Date)
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Date field.';
                 }
                 field(Comment; Rec.Comment)
                 {
                     ApplicationArea = all;
+                    ToolTip = 'Specifies the value of the Comment field.';
                 }
                 field("Code"; Rec.Code)
                 {
                     Visible = false;
                     ApplicationArea = all;
+                    ToolTip = 'Specifies the value of the Code field.';
                 }
             }
         }
     }
-
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
-                ApplicationArea = All;
-
-                trigger OnAction()
-                begin
-
-                end;
-            }
-        }
-    }
-
-    var
-        myInt: Integer;
 }

@@ -16,14 +16,17 @@ page 70101 "Seminar Setup"
                 field("Seminar Nos."; Rec."Seminar Nos.")
                 {
                     ApplicationArea = all;
+                    ToolTip = 'Specifies the value of the Seminar Nos. field.';
                 }
                 field("Seminar Registration Nos."; Rec."Seminar Registration Nos.")
                 {
                     ApplicationArea = all;
+                    ToolTip = 'Specifies the value of the Seminar Registration Nos. field.';
                 }
                 field("Posted Seminar Reg. Nos."; Rec."Posted Seminar Reg. Nos.")
                 {
                     ApplicationArea = all;
+                    ToolTip = 'Specifies the value of the Posted Seminar Reg. Nos. field.';
                 }
             }
         }

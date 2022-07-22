@@ -1,4 +1,4 @@
-page 50161 "Seminar Comment List"
+page 70104 "Seminar Comment List"
 {
     PageType = List;
     ApplicationArea = All;
@@ -22,6 +22,7 @@ page 50161 "Seminar Comment List"
                 {
                     ApplicationArea = All;
                     Caption = 'No.';
+                    ToolTip = 'Specifies the value of the No. field.';
 
 
                 }
@@ -29,12 +30,14 @@ page 50161 "Seminar Comment List"
                 {
                     ApplicationArea = All;
                     Caption = 'Date';
+                    ToolTip = 'Specifies the value of the Date field.';
 
                 }
                 field("Comment"; Rec."Comment")
                 {
                     ApplicationArea = All;
                     Caption = 'Comment';
+                    ToolTip = 'Specifies the value of the Comment field.';
 
 
                 }
@@ -42,30 +45,11 @@ page 50161 "Seminar Comment List"
                 {
                     ApplicationArea = All;
                     Caption = 'Code';
+                    ToolTip = 'Specifies the value of the Code field.';
 
 
                 }
             }
         }
     }
-
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
-                ApplicationArea = All;
-                Caption = 'ActionName';
-
-                trigger OnAction()
-                begin
-
-                end;
-            }
-        }
-    }
-
-    var
-        myInt: Integer;
 }

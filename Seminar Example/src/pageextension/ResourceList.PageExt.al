@@ -7,11 +7,13 @@ pageextension 70200 "ResourceList" extends "Resource List"
             field("Internal/External"; Rec."Internal/External")
             {
                 ApplicationArea = all;
+                ToolTip = 'Specifies the value of the Internal/External field.';
             }
             field("Maximum Participanst"; Rec."Maximum Participants")
             {
                 ApplicationArea = all;
                 Visible = ShowMaxParticipants;
+                ToolTip = 'Specifies the value of the Maximum Participants field.';
             }
         }
         modify(Type)
