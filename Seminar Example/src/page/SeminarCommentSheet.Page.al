@@ -26,7 +26,6 @@ page 71000 "Seminar Comment Sheet"
                 }
                 field("Code"; Rec.Code)
                 {
-                    Visible = false;
                     ApplicationArea = all;
                     ToolTip = 'Specifies the value of the Code field.';
                 }

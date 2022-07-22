@@ -1,7 +1,7 @@
 page 70105 "Seminar Registration"
 {
     PageType = Card;
-    UsageCategory = None;
+    UsageCategory = Documents;
     SourceTable = "Seminar Registration Header";
     Caption = 'Seminar Registration';
 
@@ -71,81 +71,91 @@ page 70105 "Seminar Registration"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Maximum Participants field.';
                 }
-                group("Seminar Room")
+            }
+            group("Seminar Room")
+            {
+                field("Room Resource No."; Rec."Room Resource No.")
                 {
-                    field("Room Resource No."; Rec."Room Resource No.")
-                    {
-                        ApplicationArea = All;
-                        ToolTip = 'Specifies the value of the Room No. field.';
-                    }
-                    field("Room Name"; Rec."Room Name")
-                    {
-                        ApplicationArea = All;
-                        ToolTip = 'Specifies the value of the Room Name field.';
-                    }
-                    field("Room Address"; Rec."Room Address")
-                    {
-                        ApplicationArea = All;
-                        ToolTip = 'Specifies the value of the Room Address field.';
-                    }
-                    field("Room Address 2"; Rec."Room Address 2")
-                    {
-                        ApplicationArea = All;
-                        ToolTip = 'Specifies the value of the Room Address 2 field.';
-                    }
-                    field("Room Post Code"; Rec."Room Post Code")
-                    {
-                        ApplicationArea = All;
-                        ToolTip = 'Specifies the value of the Room Post Code field.';
-                    }
-                    field("Room Country/Reg. Code"; Rec."Room Country/Reg. Code")
-                    {
-                        ApplicationArea = All;
-                        ToolTip = 'Specifies the value of the Room Country/Reg. Code field.';
-                    }
-                    field("Room County"; Rec."Room County")
-                    {
-                        ApplicationArea = All;
-                        ToolTip = 'Specifies the value of the Room County field.';
-                    }
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Room No. field.';
                 }
-
-                group("Invoicing")
+                field("Room Name"; Rec."Room Name")
                 {
-                    field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
-                    {
-                        ApplicationArea = All;
-                        ToolTip = 'Specifies the value of the Gen. Prod. Posting Group field.';
-                    }
-                    field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group")
-                    {
-                        ApplicationArea = All;
-                        ToolTip = 'Specifies the value of the VAT Prod. Posting Group field.';
-                    }
-                    field("Seminar Price"; Rec."Seminar Price")
-                    {
-                        ApplicationArea = All;
-                        ToolTip = 'Specifies the value of the Seminar Price field.';
-                    }
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Room Name field.';
+                }
+                field("Room Address"; Rec."Room Address")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Room Address field.';
+                }
+                field("Room Address 2"; Rec."Room Address 2")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Room Address 2 field.';
+                }
+                field("Room Post Code"; Rec."Room Post Code")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Room Post Code field.';
+                }
+                field("Room Country/Reg. Code"; Rec."Room Country/Reg. Code")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Room Country/Reg. Code field.';
+                }
+                field("Room County"; Rec."Room County")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Room County field.';
+                }
+            }
+
+            part(SeminarRegistrationLines; "Seminar Registration Subform")
+            {
+                ApplicationArea = all;
+                SubPageLink = "Document No." = FIELD("No.");
+            }
+            group("Invoicing")
+            {
+                field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Gen. Prod. Posting Group field.';
+                }
+                field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the VAT Prod. Posting Group field.';
+                }
+                field("Seminar Price"; Rec."Seminar Price")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Seminar Price field.';
                 }
             }
         }
+        /*
+                area(FactBoxes)
+                {
+                    part(MyArea; "Customer Details FactBox")
+                    {
+                        ApplicationArea = All;
+                        Provider = SeminarRegistrationLines;
+                        SubPageLink = "No." = field("Bill-to Customer No.");
+                    }
+                    systempart(Links; Links)
+                    {
+                        ApplicationArea = All;
+                        Provider = SeminarRegistrationLines;
 
-        area(FactBoxes)
-        {
-            part(MyArea; "Customer Details FactBox")
-            {
-                ApplicationArea = All;
-            }
-            systempart(Links; Links)
-            {
-                ApplicationArea = All;
-            }
-            systempart(Notes; Notes)
-            {
-                ApplicationArea = All;
-            }
-        }
+                    }
+                    systempart(Notes; Notes)
+                    {
+                        ApplicationArea = All;
+                        Provider = SeminarRegistrationLines;
+                    }
+                }*/
     }
 
     actions

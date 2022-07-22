@@ -1,7 +1,8 @@
 table 70105 "Seminar Charge"
 {
     Caption = 'Seminar Charge';
-
+    DrillDownPageId = "Seminar Charges";
+    LookupPageId = "Seminar Charges";
 
     fields
     {
@@ -100,7 +101,7 @@ table 70105 "Seminar Charge"
         }
         field(9; "To Invoice"; Boolean)
         {
-            InitValue = Yes;
+            InitValue = true;
             Caption = 'To Invoice';
         }
         field(10; "Bill-to Customer No."; Code[20])
@@ -175,7 +176,6 @@ table 70105 "Seminar Charge"
 
     trigger OnInsert()
     begin
-        SeminarRegistrationHeader.GET("Document No.");
     end;
 
     trigger OnModify()

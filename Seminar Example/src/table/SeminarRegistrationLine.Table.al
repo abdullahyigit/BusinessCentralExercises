@@ -200,7 +200,7 @@ table 50166 "Seminar Registration Line"
 
     keys
     {
-        key(Key1; "Line No.", "Document No.")
+        key(Key1; "Document No.", "Line No.")
         {
             Clustered = true;
         }

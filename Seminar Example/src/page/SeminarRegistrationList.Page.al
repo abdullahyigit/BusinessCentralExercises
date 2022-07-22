@@ -2,7 +2,7 @@ page 70107 "Seminar Registration List"
 {
     PageType = List;
     ApplicationArea = All;
-    UsageCategory = Lists;
+    UsageCategory = Documents;
     SourceTable = "Seminar Registration Header";
     Editable = false;
     CardPageId = "Seminar Registration";
