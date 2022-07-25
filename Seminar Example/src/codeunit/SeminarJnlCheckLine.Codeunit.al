@@ -17,9 +17,11 @@ codeunit 70000 "Seminar Jnl.-Check Line"
 
 
     procedure RunCheck(var SemJnlLine: Record "Seminar Journal Line")
+
     begin
         IF SemJnlLine.EmptyLine THEN
             EXIT;
+
         SemJnlLine.TESTFIELD("Posting Date");
         SemJnlLine.TESTFIELD("Instructor Resource No.");
         SemJnlLine.TESTFIELD("Seminar No.");
@@ -32,8 +34,10 @@ codeunit 70000 "Seminar Jnl.-Check Line"
             SemJnlLine."Charge Type"::Participant:
                 SemJnlLine.TESTFIELD("Participant Contact No.");
         END;
+
         if SemJnlLine.Chargeable THEN
             SemJnlLine.TESTFIELD("Bill-to Customer No.");
+
         IF SemJnlLine."Posting Date" = CLOSINGDATE(SemJnlLine."Posting Date") THEN
             SemJnlLine.FIELDERROR("Posting Date", Text000);
 
@@ -51,9 +55,11 @@ codeunit 70000 "Seminar Jnl.-Check Line"
             IF AllowPostingTo = 0D THEN
                 AllowPostingTo := 99991231D;
         END;
+
         IF (SemJnlLine."Posting Date" < AllowPostingFrom) OR (SemJnlLine."Posting Date" > AllowPostingTo)
         THEN
             SemJnlLine.FIELDERROR("Posting Date", Text001);
+
         IF (SemJnlLine."Document Date" <> 0D) THEN
             IF (SemJnlLine."Document Date" = CLOSINGDATE(SemJnlLine."Document Date")) THEN
                 SemJnlLine.FIELDERROR("Document Date", Text000);

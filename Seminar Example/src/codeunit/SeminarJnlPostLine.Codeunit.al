@@ -14,9 +14,7 @@ codeunit 70001 "Seminar Jnl.-Post Line"
         SeminarJnlCheckLine: Codeunit "Seminar Jnl.-Check Line";
         NextEntryNo: Integer;
 
-    procedure RunWithCheck(var SemJnlLine: Record "Seminar Journal Line")
-    var
-        SemJnlLine2: Record "Seminar Journal Line";
+    procedure RunWithCheck(var SemJnlLine2: Record "Seminar Journal Line")
     begin
         SeminarJnlLine.COPY(SemJnlLine2);
         Code;
@@ -55,6 +53,7 @@ codeunit 70001 "Seminar Jnl.-Post Line"
                 SeminarRegister.INSERT;
             END;
         END;
+
         SeminarRegister."To Entry No." := NextEntryNo;
         SeminarRegister.MODIFY;
 
