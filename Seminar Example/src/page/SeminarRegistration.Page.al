@@ -4,6 +4,7 @@ page 70105 "Seminar Registration"
     UsageCategory = Documents;
     SourceTable = "Seminar Registration Header";
     Caption = 'Seminar Registration';
+    ApplicationArea = All;
 
     layout
     {

@@ -1,5 +1,6 @@
 table 70108 "Seminar Ledger Entry"
 {
+    Caption = 'Seminar Ledger Entry';
     fields
     {
         field(1; "Entry No."; Integer)
@@ -29,9 +30,9 @@ table 70108 "Seminar Ledger Entry"
             OptionCaption = 'Registration,Cancelation';
             Caption = 'Entry Type';
         }
-        field(6; "Document No. "; Code[20])
+        field(6; "Document No."; Code[20])
         {
-            Caption = 'Document No. ';
+            Caption = 'Document No.';
 
         }
         field(7; "Description"; Text[50])

@@ -1,4 +1,4 @@
-page 70108 "Seminar Details FactBox"
+page 70110 "Seminar Details FactBox"
 {
     PageType = CardPart;
     SourceTable = Seminar;
