@@ -1,4 +1,4 @@
-table 70800 "Seminar Comment Line"
+table 70104 "Seminar Comment Line"
 {
     CaptionML = ENU = 'Seminar Comment Line';
     LookupPageId = "Seminar Comment List";
