@@ -17,9 +17,9 @@ table 70107 "Seminar Register"
             Caption = 'To Entry No.';
             TableRelation = "Seminar Ledger Entry";
         }
-        field(4; "Creation Day"; Date)
+        field(4; "Creation Date"; Date)
         {
-            Caption = 'Creation Day';
+            Caption = 'Creation Date';
         }
         field(5; "Source Code"; Code[10])
         {
@@ -44,9 +44,9 @@ table 70107 "Seminar Register"
         {
             Clustered = true;
         }
-        key(Key2; "Creation Day")
+        key(Key2; "Creation Date")
         { }
-        key(Key3; "Source Code", "Creation Day")
+        key(Key3; "Source Code", "Creation Date")
         { }
     }
 

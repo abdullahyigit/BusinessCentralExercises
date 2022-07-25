@@ -2,9 +2,9 @@ table 70108 "Seminar Ledger Entry"
 {
     fields
     {
-        field(1; "Entry No"; Integer)
+        field(1; "Entry No."; Integer)
         {
-            Caption = 'Entry No';
+            Caption = 'Entry No.';
 
         }
         field(2; "Seminar No."; Code[20])
@@ -23,11 +23,11 @@ table 70108 "Seminar Ledger Entry"
             Caption = 'Document Date';
 
         }
-        field(5; "Entry Type "; Option)
+        field(5; "Entry Type"; Option)
         {
             OptionMembers = "Registration","Cancelation";
             OptionCaption = 'Registration,Cancelation';
-            Caption = 'Entry Type ';
+            Caption = 'Entry Type';
         }
         field(6; "Document No. "; Code[20])
         {
@@ -87,10 +87,10 @@ table 70108 "Seminar Ledger Entry"
             Caption = 'Participant Name';
 
         }
-        field(16; "Chargeable "; Boolean)
+        field(16; "Chargeable"; Boolean)
         {
             InitValue = true;
-            Caption = 'Chargeable ';
+            Caption = 'Chargeable';
 
         }
         field(17; "Room Resource No."; Code[20])
@@ -169,7 +169,7 @@ table 70108 "Seminar Ledger Entry"
 
     keys
     {
-        key(Key1; "Entry No")
+        key(Key1; "Entry No.")
         {
             Clustered = true;
         }
