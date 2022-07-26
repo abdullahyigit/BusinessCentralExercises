@@ -11,7 +11,7 @@ page 70108 "Seminar Ledger Entries"
     {
         area(Content)
         {
-            group(GroupName)
+            repeater(GroupName)
             {
                 field("Posting Date"; Rec."Posting Date")
                 {
