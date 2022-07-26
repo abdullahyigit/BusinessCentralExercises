@@ -1,4 +1,4 @@
-pageextension 70000 "SourceCodeSetup" extends "Source Code Setup"
+pageextension 70402 "SourceCodeSetup" extends "Source Code Setup"
 {
     layout
     {

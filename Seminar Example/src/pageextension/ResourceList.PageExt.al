@@ -1,4 +1,4 @@
-pageextension 70200 "ResourceList" extends "Resource List"
+pageextension 70401 "ResourceList" extends "Resource List"
 {
     layout
     {
