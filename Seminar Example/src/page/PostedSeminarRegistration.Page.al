@@ -3,6 +3,7 @@ page 70111 "Posted Seminar Registration"
     PageType = Document;
     SourceTable = "Posted Seminar Reg. Header";
     Editable = false;
+    Caption = 'Posted Seminar Registration';
 
     layout
     {
@@ -71,6 +72,11 @@ page 70111 "Posted Seminar Registration"
                     ToolTip = 'Specifies the value of the Maximum Participants field.';
                 }
             }
+            part(SeminarRegistrationLines; "Seminar Registration Subform")
+            {
+                ApplicationArea = all;
+                SubPageLink = "Document No." = FIELD("No.");
+            }
             group("Seminar Room")
             {
                 field("Room Resource No."; Rec."Room Resource No.")
@@ -109,12 +115,6 @@ page 70111 "Posted Seminar Registration"
                     ToolTip = 'Specifies the value of the Room County field.';
                 }
             }
-
-            part(SeminarRegistrationLines; "Seminar Registration Subform")
-            {
-                ApplicationArea = all;
-                SubPageLink = "Document No." = FIELD("No.");
-            }
             group("Invoicing")
             {
                 field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
@@ -134,6 +134,21 @@ page 70111 "Posted Seminar Registration"
                 }
             }
         }
+        area(FactBoxes)
+        {
+            part("Details FactBox"; "Seminar Details FactBox")
+            {
+                SubPageLink = "No." = field("Seminar No.");
+            }
+            part("Customer Details FactBox"; "Customer Details FactBox")
+            {
+                SubPageLink = "No." = field("Seminar No.");
+            }
+            systempart(RecordLinks; Links)
+            { }
+            systempart(Notes; Notes)
+            { }
+        }
     }
 
     actions
@@ -142,18 +157,20 @@ page 70111 "Posted Seminar Registration"
         {
             action("Comments")
             {
+                Caption = 'Comments';
                 ApplicationArea = All;
-                RunObject = page "Comment Sheet";
-                //RunPageView = WHERE("No." = const(0));
-                //RunPageLink = field2 = field(field1);
+                RunObject = page "Seminar Comment Sheet";
+                RunPageView = WHERE("Document Type" = const(1));
+                RunPageLink = "No." = field("No.");
                 Image = Comment;
                 ToolTip = 'Executes the Comments action.';
             }
             action("Charges")
             {
+                Caption = 'Charges';
                 ApplicationArea = All;
                 RunObject = page "Seminar Charges";
-                //RunPageLink = field2 = field(field1);
+                RunPageLink = "No." = field("No.");
                 Image = Costs;
                 ToolTip = 'Executes the Charges action.';
             }

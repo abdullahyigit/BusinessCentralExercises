@@ -14,51 +14,65 @@ page 70113 "Posted Seminar Reg. List"
         {
             repeater("Group")
             {
+                Caption = 'Group';
                 field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the No. field.';
+                    Caption = 'No.';
                 }
                 field("Starting Date"; Rec."Starting Date")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Starting Date field.';
+                    Caption = 'Starting Date';
                 }
                 field("Seminar No."; Rec."Seminar No.")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Seminar No. field.';
+                    Caption = 'Seminar No.';
                 }
                 field("Seminar Name"; Rec."Seminar Name")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Seminar Name field.';
+                    Caption = 'Seminar Name';
                 }
                 field(Status; Rec.Status)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Status field.';
+                    Caption = 'Status';
                 }
                 field("Duration"; Rec."Duration")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Duration field.';
+                    Caption = 'Duration';
                 }
                 field("Maximum Participants"; Rec."Maximum Participants")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Maximum Participants field.';
+                    Caption = 'Maximum Participants';
                 }
                 field("Room Resource No."; Rec."Room Resource No.")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Room No. field.';
+                    Caption = 'Room No.';
                 }
             }
         }
         area(FactBoxes)
         {
-            systempart(Links; Links)
+            part("Details FactBox"; "Seminar Details FactBox")
+            {
+                SubPageLink = "No." = field("Seminar No.");
+                Caption = 'Seminar Details FactBox';
+            }
+            systempart(RecordLinks; Links)
             {
                 ApplicationArea = All;
             }
@@ -75,18 +89,20 @@ page 70113 "Posted Seminar Reg. List"
         {
             action("Comments")
             {
+                Caption = 'Comments';
                 ApplicationArea = All;
-                RunObject = page "Comment Sheet";
-                //RunPageView = WHERE("No." = const(0));
-                //RunPageLink = field2 = field(field1);
+                RunObject = page "Seminar Comment Sheet";
+                RunPageView = WHERE("Document Type" = const(1));
+                RunPageLink = "No." = field("No.");
                 Image = Comment;
                 ToolTip = 'Executes the Comments action.';
             }
             action("Charges")
             {
+                Caption = 'Charges';
                 ApplicationArea = All;
-                //RunObject = page 
-                //RunPageLink = field2 = field(field1);
+                RunObject = page "Posted Seminar Charges";
+                RunPageLink = "No." = field("No.");
                 Image = Costs;
                 ToolTip = 'Executes the Charges action.';
             }

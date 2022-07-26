@@ -58,7 +58,7 @@ page 70107 "Seminar Registration List"
         }
         area(FactBoxes)
         {
-            systempart(Links; Links)
+            systempart(RecordLinks; Links)
             {
                 ApplicationArea = All;
             }
@@ -76,17 +76,17 @@ page 70107 "Seminar Registration List"
             action("Comments")
             {
                 ApplicationArea = All;
-                RunObject = page "Comment Sheet";
-                //RunPageView = WHERE("No." = const(0));
-                //RunPageLink = field2 = field(field1);
+                RunObject = page "Seminar Comment Sheet";
+                RunPageView = WHERE("Document Type" = const(0));
+                RunPageLink = "No." = field("No.");
                 Image = Comment;
                 ToolTip = 'Executes the Comments action.';
             }
             action("Charges")
             {
                 ApplicationArea = All;
-                //RunObject = page 
-                //RunPageLink = field2 = field(field1);
+                RunObject = page "Seminar Charges";
+                RunPageLink = "No." = field("No.");
                 Image = Costs;
                 ToolTip = 'Executes the Charges action.';
             }

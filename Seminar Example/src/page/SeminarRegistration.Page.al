@@ -136,27 +136,27 @@ page 70105 "Seminar Registration"
                 }
             }
         }
-        /*
-                area(FactBoxes)
-                {
-                    part(MyArea; "Customer Details FactBox")
-                    {
-                        ApplicationArea = All;
-                        Provider = SeminarRegistrationLines;
-                        SubPageLink = "No." = field("Bill-to Customer No.");
-                    }
-                    systempart(Links; Links)
-                    {
-                        ApplicationArea = All;
-                        Provider = SeminarRegistrationLines;
 
-                    }
-                    systempart(Notes; Notes)
-                    {
-                        ApplicationArea = All;
-                        Provider = SeminarRegistrationLines;
-                    }
-                }*/
+        area(FactBoxes)
+        {
+            part(MyArea; "Customer Details FactBox")
+            {
+                ApplicationArea = All;
+                Provider = SeminarRegistrationLines;
+                SubPageLink = "No." = field("Bill-to Customer No.");
+            }
+            systempart(RecordLinks; Links)
+            {
+                ApplicationArea = All;
+                Provider = SeminarRegistrationLines;
+
+            }
+            systempart(Notes; Notes)
+            {
+                ApplicationArea = All;
+                Provider = SeminarRegistrationLines;
+            }
+        }
     }
 
     actions
@@ -166,9 +166,9 @@ page 70105 "Seminar Registration"
             action("Comments")
             {
                 ApplicationArea = All;
-                RunObject = page "Comment Sheet";
-                //RunPageView = WHERE("No." = const(0));
-                //RunPageLink = field2 = field(field1);
+                RunObject = page "Seminar Comment Sheet";
+                RunPageView = WHERE("Document Type" = const(1));
+                RunPageLink = "No." = field("No.");
                 Image = Comment;
                 ToolTip = 'Executes the Comments action.';
             }
@@ -176,7 +176,7 @@ page 70105 "Seminar Registration"
             {
                 ApplicationArea = All;
                 RunObject = page "Seminar Charges";
-                //RunPageLink = field2 = field(field1);
+                RunPageLink = "Document No." = field("No.");
                 Image = Costs;
                 ToolTip = 'Executes the Charges action.';
             }
