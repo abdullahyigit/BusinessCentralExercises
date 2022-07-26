@@ -53,7 +53,7 @@ page 70100 "Seminar Registers"
 
         area(FactBoxes)
         {
-            systempart(Links; Links)
+            systempart(RecordLinks; Links)
             {
                 ApplicationArea = All;
             }
