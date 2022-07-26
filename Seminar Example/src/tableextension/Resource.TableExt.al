@@ -12,9 +12,9 @@ tableextension 70300 "Resource" extends Resource
         {
             Caption = 'Maximum Participants';
         }
-        field(50152; "Quantitiy Per Day"; Decimal)
+        field(50152; "Quantity Per Day"; Decimal)
         {
-            Caption = 'Quantitiy Per Day';
+            Caption = 'Quantity Per Day';
         }
     }
 

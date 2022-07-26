@@ -9,10 +9,10 @@ pageextension 70400 "ResourceCard" extends "Resource Card"
                 ApplicationArea = all;
                 ToolTip = 'Specifies the value of the Internal/External field.';
             }
-            field("Quantitiy Per Day"; Rec."Quantitiy Per Day")
+            field("Quantitiy Per Day"; Rec."Quantity Per Day")
             {
                 ApplicationArea = all;
-                ToolTip = 'Specifies the value of the Quantitiy Per Day field.';
+                ToolTip = 'Specifies the value of the Quantity Per Day field.';
             }
         }
 

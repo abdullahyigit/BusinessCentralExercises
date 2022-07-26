@@ -21,7 +21,7 @@ page 70109 "Seminar Charges"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Description field.';
                 }
-                field(Quantitiy; Rec.Quantitiy)
+                field(Quantitiy; Rec.Quantity)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Quantitiy field.';

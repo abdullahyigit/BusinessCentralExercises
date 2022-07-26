@@ -105,10 +105,10 @@ table 70106 "Seminar Journal Line"
         {
             Caption = 'Seminar Registration No.';
         }
-        field(22; "Res. Ledger Entry No"; Integer)
+        field(22; "Res. Ledger Entry No."; Integer)
         {
             TableRelation = "Res. Ledger Entry";
-            Caption = 'Res. Ledger Entry No';
+            Caption = 'Res. Ledger Entry No.';
         }
         field(23; "Source Type"; Option)
         {
