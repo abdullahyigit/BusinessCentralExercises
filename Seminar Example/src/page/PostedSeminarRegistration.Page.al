@@ -72,7 +72,7 @@ page 70111 "Posted Seminar Registration"
                     ToolTip = 'Specifies the value of the Maximum Participants field.';
                 }
             }
-            part(SeminarRegistrationLines; "Seminar Registration Subform")
+            part(PostedSeminarRegistrationLines; "Posted Seminar Reg. Subform")
             {
                 ApplicationArea = all;
                 SubPageLink = "Document No." = FIELD("No.");
