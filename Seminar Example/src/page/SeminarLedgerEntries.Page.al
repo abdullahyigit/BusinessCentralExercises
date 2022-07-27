@@ -1,11 +1,11 @@
 page 70108 "Seminar Ledger Entries"
 {
     PageType = List;
-    UsageCategory = Lists;
+    UsageCategory = History;
     SourceTable = "Seminar Ledger Entry";
     Editable = false;
     Caption = 'Seminar Ledger Entries';
-    ApplicationArea = All;
+    ApplicationArea = all;
 
     layout
     {
