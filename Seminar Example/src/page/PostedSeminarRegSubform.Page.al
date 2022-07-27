@@ -3,7 +3,7 @@ page 70112 "Posted Seminar Reg. Subform"
     PageType = ListPart;
     SourceTable = "Posted Seminar Reg. Line";
     DelayedInsert = true;
-    Caption = 'Lines';
+    Caption = 'Posted Lines';
     AutoSplitKey = true;
 
     layout

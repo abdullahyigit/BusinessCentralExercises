@@ -6,7 +6,7 @@ page 70113 "Posted Seminar Reg. List"
     SourceTable = "Posted Seminar Reg. Header";
     Editable = false;
     CardPageId = "Posted Seminar Registration";
-    Caption = 'Seminar Registration List';
+    Caption = 'Posted Seminar Reg. List';
 
     layout
     {
