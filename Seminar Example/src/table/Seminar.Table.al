@@ -1,6 +1,8 @@
 table 70101 "Seminar"
 {
     Caption = 'Seminar';
+    LookupPageId = "Seminar List";
+    DrillDownPageId = "Seminar List";
     fields
     {
         field(1; "No."; Code[20])

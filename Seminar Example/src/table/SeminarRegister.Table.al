@@ -1,6 +1,8 @@
 table 70107 "Seminar Register"
 {
     Caption = 'Seminar Register';
+    LookupPageId = "Seminar Registers";
+    DrillDownPageId = "Seminar Registers";
     fields
     {
         field(1; "No."; Integer)
