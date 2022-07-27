@@ -28,12 +28,10 @@ table 70110 "Posted Seminar Reg. Line"
             Caption = 'Participant Name';
             FieldClass = FlowField;
             CalcFormula = Lookup(Contact.Name WHERE("No." = FIELD("Participant Contact No.")));
-            Editable = false;
         }
         field(6; "Registration Date"; Date)
         {
             Caption = 'Registration Date';
-            Editable = false;
         }
         field(7; "To Invoice"; Boolean)
         {

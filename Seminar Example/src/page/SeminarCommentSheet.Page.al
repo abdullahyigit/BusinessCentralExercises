@@ -1,6 +1,6 @@
 page 71000 "Seminar Comment Sheet"
 {
-    CaptionML = ENU = 'Seminar Comment Sheet';
+    Caption = 'Seminar Comment Sheet';
     MultipleNewLines = true;
     LinksAllowed = false;
     SourceTable = "Seminar Comment Line";
@@ -8,6 +8,7 @@ page 71000 "Seminar Comment Sheet"
     DataCaptionFields = "No.";
     PageType = List;
     AutoSplitKey = true;
+
     layout
     {
         area(Content)

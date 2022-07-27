@@ -52,7 +52,7 @@ table 70103 "Seminar Registration Header"
                     Seminar.TESTFIELD("Gen. Prod. Posting Group");
                     Seminar.TESTFIELD("Vat. Prod. Posting Group");
                     "Seminar Name" := Seminar.Name;
-                    Duration := Seminar."Seminar Duration";
+                    "Duration" := Seminar."Seminar Duration";
                     "Seminar Price" := Seminar."Seminar Price";
                     "Gen. Prod. Posting Group" := Seminar."Gen. Prod. Posting Group";
                     "VAT Prod. Posting Group" := Seminar."Vat. Prod. Posting Group";
@@ -224,8 +224,8 @@ table 70103 "Seminar Registration Header"
             trigger OnValidate()
             begin
                 IF ("Seminar Price" <> xRec."Seminar Price") AND
-                                                                   (Status <> Status::Canceled)
-                                                                THEN BEGIN
+                    (Status <> Status::Canceled)
+                    THEN BEGIN
                     SeminarRegLine.RESET;
                     SeminarRegLine.SETRANGE("Document No.", "No.");
                     SeminarRegLine.SETRANGE(Registered, FALSE);
@@ -324,6 +324,7 @@ table 70103 "Seminar Registration Header"
         Text005: Label 'Should the new %1 be copied to all %2 that are not yet invoiced?';
         Text006: Label 'You cannot delete the Seminar Registration, because there is at least one %1.';
 
+    //koda bakS
     trigger OnInsert()
     begin
         if "No." = '' then begin

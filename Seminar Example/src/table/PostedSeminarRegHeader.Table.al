@@ -35,7 +35,6 @@ table 70109 "Posted Seminar Reg. Header"
         field(7; "Posting Date"; Date)
         {
             Caption = 'Posting Date';
-
         }
         field(8; "Document Date"; Date)
         {
@@ -43,7 +42,6 @@ table 70109 "Posted Seminar Reg. Header"
         }
         field(9; Status; Option)
         {
-
             OptionCaption = 'Planning,Registration,Closed,Canceled';
             OptionMembers = "Planning","Registration","Closed","Canceled";
             Caption = 'Status';
@@ -56,12 +54,10 @@ table 70109 "Posted Seminar Reg. Header"
         field(11; "Minimum Participants"; Integer)
         {
             Caption = 'Minimum Participants';
-
         }
         field(12; "Maximum Participants"; Integer)
         {
             Caption = 'Maximum Participants';
-
         }
         field(13; "Room Resource No."; Code[20])
         {
@@ -71,17 +67,14 @@ table 70109 "Posted Seminar Reg. Header"
         field(14; "Room Name"; Text[30])
         {
             Caption = 'Room Name';
-
         }
         field(15; "Room Address"; Text[30])
         {
             Caption = 'Room Address';
-
         }
         field(16; "Room Address 2"; Text[30])
         {
             Caption = 'Room Address 2';
-
         }
         field(17; "Room Post Code"; Code[20])
         {
@@ -100,7 +93,6 @@ table 70109 "Posted Seminar Reg. Header"
         field(20; "Room County"; Text[30])
         {
             Caption = 'Room County';
-
         }
         field(21; "Gen. Prod. Posting Group"; Code[10])
         {
@@ -120,8 +112,7 @@ table 70109 "Posted Seminar Reg. Header"
         {
             Caption = 'Comment';
             FieldClass = FlowField;
-            CalcFormula = Exist("Seminar Comment Line" WHERE("Document Type" = CONST("Posted Seminar Registration"),
-                                                                                                   "No." = FIELD("No.")));
+            CalcFormula = Exist("Seminar Comment Line" WHERE("Document Type" = CONST("Posted Seminar Registration"), "No." = FIELD("No.")));
             Editable = false;
         }
         field(25; "Reason Code"; Code[10])

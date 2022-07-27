@@ -10,7 +10,6 @@ table 70102 "Seminar Registration Line"
             DataClassification = ToBeClassified;
             Caption = 'Document No.';
             TableRelation = "Seminar Registration Header";
-
         }
         field(2; "Line No."; Integer)
         {
@@ -91,14 +90,12 @@ table 70102 "Seminar Registration Line"
             FieldClass = FlowField;
             CalcFormula = Lookup(Contact.Name WHERE("No." = FIELD("Participant Contact No.")));
             Editable = false;
-
         }
         field(6; "Registration Date"; Date)
         {
             DataClassification = ToBeClassified;
             Caption = 'Registration Date';
             Editable = false;
-
         }
         field(7; "To Invoice"; Boolean)
         {
@@ -224,6 +221,7 @@ table 70102 "Seminar Registration Line"
             "Seminar Price" := SeminarRegHeader."Seminar Price";
             Amount := SeminarRegHeader."Seminar Price";
         END;
+        Message(Format("Line No."));
     end;
 
     trigger OnModify()

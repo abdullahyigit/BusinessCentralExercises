@@ -3,6 +3,7 @@ table 70108 "Seminar Ledger Entry"
     Caption = 'Seminar Ledger Entry';
     DrillDownPageId = "Seminar Ledger Entries";
     LookupPageId = "Seminar Ledger Entries";
+
     fields
     {
         field(1; "Entry No."; Integer)
