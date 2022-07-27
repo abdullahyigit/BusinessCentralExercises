@@ -15,6 +15,10 @@ page 70105 "Seminar Registration"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the No. field.';
+                    trigger OnValidate()
+                    begin
+                        CurrPage.SaveRecord();
+                    end;
                 }
                 field("Starting Date"; Rec."Starting Date")
                 {
