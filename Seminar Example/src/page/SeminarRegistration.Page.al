@@ -1,10 +1,9 @@
 page 70105 "Seminar Registration"
 {
-    PageType = Card;
-    UsageCategory = Documents;
+    PageType = Document;
     SourceTable = "Seminar Registration Header";
     Caption = 'Seminar Registration';
-    ApplicationArea = All;
+    RefreshOnActivate = true;
 
     layout
     {
@@ -73,6 +72,11 @@ page 70105 "Seminar Registration"
                     ToolTip = 'Specifies the value of the Maximum Participants field.';
                 }
             }
+            part(SeminarRegistrationLines; "Seminar Registration Subform")
+            {
+                ApplicationArea = all;
+                SubPageLink = "Document No." = FIELD("No.");
+            }
             group("Seminar Room")
             {
                 field("Room Resource No."; Rec."Room Resource No.")
@@ -110,12 +114,6 @@ page 70105 "Seminar Registration"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Room County field.';
                 }
-            }
-
-            part(SeminarRegistrationLines; "Seminar Registration Subform")
-            {
-                ApplicationArea = all;
-                SubPageLink = "Document No." = FIELD("No.");
             }
             group("Invoicing")
             {
@@ -179,6 +177,22 @@ page 70105 "Seminar Registration"
                 RunPageLink = "Document No." = field("No.");
                 Image = Costs;
                 ToolTip = 'Executes the Charges action.';
+            }
+        }
+        area(Processing)
+        {
+            group("P&osting")
+            {
+                action("P&ost")
+                {
+                    ApplicationArea = all;
+                    Image = PostDocument;
+                    Caption = 'P&ost';
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    ShortcutKey = F9;
+                    RunObject = codeunit "Seminar-Post (Yes/No)";
+                }
             }
         }
     }

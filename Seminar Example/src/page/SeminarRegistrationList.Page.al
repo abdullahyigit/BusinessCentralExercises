@@ -91,5 +91,22 @@ page 70107 "Seminar Registration List"
                 ToolTip = 'Executes the Charges action.';
             }
         }
+        area(Processing)
+        {
+            group("P&osting")
+            {
+                action("P&ost")
+                {
+                    ApplicationArea = all;
+                    Image = PostDocument;
+                    Caption = 'P&ost';
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    ShortcutKey = F9;
+                    RunObject = codeunit "Seminar-Post (Yes/No)";
+                }
+            }
+        }
+
     }
 }
