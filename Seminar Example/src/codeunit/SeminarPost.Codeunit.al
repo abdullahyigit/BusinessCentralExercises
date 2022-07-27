@@ -10,7 +10,7 @@ codeunit 70004 "Seminar-Post"
         SeminarRegHeader.TESTFIELD("Posting Date");
         SeminarRegHeader.TESTFIELD("Document Date");
         SeminarRegHeader.TESTFIELD("Seminar No.");
-        SeminarRegHeader.TESTFIELD(Duration);
+        SeminarRegHeader.TESTFIELD("Duration");
         SeminarRegHeader.TESTFIELD("Instructor Resource No.");
         SeminarRegHeader.TESTFIELD("Room Resource No.");
         SeminarRegHeader.TESTFIELD(Status, SeminarRegHeader.Status::Closed);
@@ -38,16 +38,20 @@ codeunit 70004 "Seminar-Post"
         PstdSeminarRegHeader."Source Code" := SourceCode;
         PstdSeminarRegHeader."User ID" := USERID;
         PstdSeminarRegHeader.INSERT;
+
         Window.UPDATE(1, STRSUBSTNO(Text004, SeminarRegHeader."No.",
          PstdSeminarRegHeader."No."));
+
         CopyCommentLines(
         SeminarCommentLine."Document Type"::"Seminar Registration",
         SeminarCommentLine."Document Type"::"Posted Seminar Registration",
         SeminarRegHeader."No.", PstdSeminarRegHeader."No.");
         CopyCharges(SeminarRegHeader."No.", PstdSeminarRegHeader."No.");
+
         LineCount := 0;
         SeminarRegLine.RESET;
         SeminarRegLine.SETRANGE("Document No.", SeminarRegHeader."No.");
+
         IF SeminarRegLine.FINDSET THEN BEGIN
             REPEAT
                 LineCount := LineCount + 1;
@@ -62,7 +66,7 @@ codeunit 70004 "Seminar-Post"
                 END;
                 // Post seminar entry
                 PostSeminarJnlLine(2); // Participant
-                                       // Insert posted seminar registration line
+                // Insert posted seminar registration line
                 PstdSeminarRegLine.INIT;
                 PstdSeminarRegLine.TRANSFERFIELDS(SeminarRegLine);
                 PstdSeminarRegLine."Document No." := PstdSeminarRegHeader."No.";
@@ -72,13 +76,14 @@ codeunit 70004 "Seminar-Post"
             PostCharges;
             // Post instructor to seminar ledger
             PostSeminarJnlLine(0); // Instructor
-                                   // Post seminar room to seminar ledger
+            // Post seminar room to seminar ledger
             PostSeminarJnlLine(1); // Room
         END;
+
         SeminarRegHeader.DELETE;
         SeminarRegLine.DELETEALL;
         SeminarCommentLine.SETRANGE("Document Type",
-         SeminarCommentLine."Document Type"::"Seminar Registration");
+        SeminarCommentLine."Document Type"::"Seminar Registration");
         SeminarCommentLine.SETRANGE("No.", SeminarRegHeader."No.");
         SeminarCommentLine.DELETEALL;
         SeminarCharge.SETRANGE(Description);
@@ -164,7 +169,7 @@ codeunit 70004 "Seminar-Post"
         ResJnlLine."Unit of Measure Code" := Resource."Base Unit of Measure";
         ResJnlLine."Unit Cost" := Resource."Unit Cost";
         ResJnlLine."Qty. per Unit of Measure" := 1;
-        ResJnlLine.Quantity := SeminarRegHeader.Duration * Resource."Quantity Per Day";
+        ResJnlLine.Quantity := SeminarRegHeader."Duration" * Resource."Quantity Per Day";
         ResJnlLine."Total Cost" := ResJnlLine."Unit Cost" * ResJnlLine.Quantity;
         ResJnlLine."Seminar No." := SeminarRegHeader."Seminar No.";
         ResJnlLine."Seminar Registration No." := PstdSeminarRegHeader."No.";
@@ -197,28 +202,29 @@ codeunit 70004 "Seminar-Post"
                 BEGIN
                     Instructor.GET(SeminarRegHeader."Instructor Resource No.");
                     SeminarJnlLine.Description := Instructor.Name;
-                    SeminarJnlLine.Type := SeminarJnlLine.Type::Resource;
+                    SeminarJnlLine."Type" := SeminarJnlLine."Type"::Resource;
                     SeminarJnlLine.Chargeable := FALSE;
-                    SeminarJnlLine.Quantity := SeminarRegHeader.Duration;
+                    SeminarJnlLine.Quantity := SeminarRegHeader."Duration";
                     SeminarJnlLine."Res. Ledger Entry No." := PostResJnlLine(Instructor);
                 END;
             ChargeType::Room:
                 BEGIN
                     Room.GET(SeminarRegHeader."Room Resource No.");
                     SeminarJnlLine.Description := Room.Name;
-                    SeminarJnlLine.Type := SeminarJnlLine.Type::Resource;
+                    SeminarJnlLine."Type" := SeminarJnlLine."Type"::Resource;
                     SeminarJnlLine.Chargeable := FALSE;
-                    SeminarJnlLine.Quantity := SeminarRegHeader.Duration;
+                    SeminarJnlLine.Quantity := SeminarRegHeader."Duration";
                     // Post to resource ledger
                     SeminarJnlLine."Res. Ledger Entry No." := PostResJnlLine(Room);
                 END;
             ChargeType::Participant:
                 BEGIN
+                    SeminarRegLine.CalcFields("Participant Name");
                     SeminarJnlLine."Bill-to Customer No." := SeminarRegLine."Bill-to Customer No.";
                     SeminarJnlLine."Participant Contact No." := SeminarRegLine."Participant Contact No.";
                     SeminarJnlLine."Participant Name" := SeminarRegLine."Participant Name";
                     SeminarJnlLine.Description := SeminarRegLine."Participant Name";
-                    SeminarJnlLine.Type := SeminarJnlLine.Type::Resource;
+                    SeminarJnlLine."Type" := SeminarJnlLine."Type"::Resource;
                     SeminarJnlLine.Chargeable := SeminarRegLine."To Invoice";
                     SeminarJnlLine.Quantity := 1;
                     SeminarJnlLine."Unit Price" := SeminarRegLine.Amount;
