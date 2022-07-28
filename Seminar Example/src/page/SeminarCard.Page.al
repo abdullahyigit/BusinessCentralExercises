@@ -80,15 +80,50 @@ page 70102 "Seminar Card"
 
     actions
     {
+        area(Creation)
+        {
+            action("Seminar Registration")
+            {
+                Caption = 'Seminar Registration';
+                RunPageMode = Create;
+                Image = NewTimesheet;
+                Promoted = true;
+                PromotedCategory = New;
+                PromotedIsBig = true;
+                RunObject = page "Seminar Registration";
+                RunPageLink = "Seminar No." = field("No.");
+                ApplicationArea = All;
+            }
+        }
         area(Processing)
         {
-            action(Comments)
+            group(Seminar)
             {
-                Image = Comment;
-                RunObject = page "Comment Sheet";
-                RunPageLink = "Table Name" = const(Seminar), "No." = field("No.");
-                ApplicationArea = All;
-                ToolTip = 'Executes the Comments action.';
+                action("Ledger Entries")
+                {
+                    Caption = 'Ledger Entries';
+                    Image = WarrantyLedger;
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    PromotedIsBig = true;
+                    ShortcutKey = "Ctrl + F7";
+                    RunObject = page "Seminar Ledger Entries";
+                    RunPageLink = "Seminar No." = field("No.");
+                    ApplicationArea = all;
+                }
+            }
+            group("&Registrations")
+            {
+                action("Registrations")
+                {
+                    Caption = '&Registrations';
+                    Image = Timesheet;
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    RunObject = page "Seminar Registration List";
+                    RunPageLink = "Seminar No." = field("No.");
+                    ApplicationArea = all;
+                }
             }
         }
     }

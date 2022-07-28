@@ -7,6 +7,7 @@ page 70103 "Seminar List"
     CardPageId = "Seminar Card";
     Editable = false;
     Caption = 'Seminar List';
+    PromotedActionCategories = 'New,Process,Creation,Seminar';
 
     layout
     {
@@ -50,7 +51,7 @@ page 70103 "Seminar List"
 
     actions
     {
-        area(Processing)
+        area(Creation)
         {
             action(Comments)
             {
@@ -59,6 +60,49 @@ page 70103 "Seminar List"
                 RunPageLink = "Table Name" = const(Seminar), "No." = field("No.");
                 ApplicationArea = All;
                 ToolTip = 'Executes the Comments action.';
+            }
+
+            action("Seminar Registration")
+            {
+                Caption = 'Seminar Registration';
+                RunPageMode = Create;
+                Image = NewTimesheet;
+                Promoted = true;
+                PromotedCategory = New;
+                PromotedIsBig = true;
+                RunObject = page "Seminar Registration";
+                RunPageLink = "Seminar No." = field("No.");
+                ApplicationArea = All;
+            }
+        }
+        area(Processing)
+        {
+            group(Seminar)
+            {
+                Caption = 'Seminar';
+                Image = AvailableToPromise;
+                action("Ledger Entries")
+                {
+                    Caption = 'Ledger Entries';
+                    Image = WarrantyLedger;
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    PromotedIsBig = true;
+                    ShortcutKey = "Ctrl + F7";
+                    RunObject = page "Seminar Ledger Entries";
+                    RunPageLink = "Seminar No." = field("No.");
+                    ApplicationArea = all;
+                }
+                action("Registrations")
+                {
+                    Caption = '&Registrations';
+                    Image = Timesheet;
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    RunObject = page "Seminar Registration List";
+                    RunPageLink = "Seminar No." = field("No.");
+                    ApplicationArea = all;
+                }
             }
         }
     }
