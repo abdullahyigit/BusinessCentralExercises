@@ -6,6 +6,7 @@ page 70100 "Seminar Registers"
     SourceTable = "Seminar Register";
     Editable = false;
     Caption = 'Seminar Registers';
+    PromotedActionCategories = 'New,Process,Report,Entry';
 
     layout
     {
@@ -68,18 +69,22 @@ page 70100 "Seminar Registers"
     {
         area(Navigation)
         {
-            action("Seminar Ledger")
+            group("&Entry")
             {
-                ApplicationArea = All;
-                RunObject = codeunit "Seminar Reg.-Show Ledger";
-                Image = WarrantyLedger;
-                ToolTip = 'Executes the Seminar Ledger action.';
-
-                trigger OnAction()
-                begin
-
-                end;
+                Caption = '&Entry';
+                Image = Entry;
+                action("&Seminar Ledger")
+                {
+                    Caption = '&Seminar Ledger';
+                    ApplicationArea = All;
+                    RunObject = codeunit "Seminar Reg.-Show Ledger";
+                    Image = WarrantyLedger;
+                    ToolTip = 'Executes the Seminar Ledger action.';
+                    Promoted = true;
+                    PromotedCategory = Category4;
+                }
             }
+
         }
     }
 

@@ -5,7 +5,7 @@ codeunit 70008 "OnAfterNavigateShowRecords"
     var
         PostedSeminarRegHeader: Record "Posted Seminar Reg. Header";
         SeminarLedgEntry: Record "Seminar Ledger Entry";
-        ItemTrackingNavigateMgt: Codeunit "Item Tracking Navigate Mgt.";
+
     begin
         IF PostedSeminarRegHeader.READPERMISSION THEN BEGIN
             PostedSeminarRegHeader.RESET;
