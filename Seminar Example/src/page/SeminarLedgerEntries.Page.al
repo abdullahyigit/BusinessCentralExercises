@@ -136,19 +136,23 @@ page 70108 "Seminar Ledger Entries"
     {
         area(Processing)
         {
-            action(ActionName)
+            action("&Navigate")
             {
-                ApplicationArea = All;
-                ToolTip = 'Executes the ActionName action.';
-
+                ApplicationArea = all;
+                Caption = '&Navigate';
+                Image = Navigate;
+                Promoted = true;
+                PromotedCategory = Process;
                 trigger OnAction()
                 begin
-
+                    Navigate.SetDoc(Rec."Posting Date", Rec."Document No.");
+                    Navigate.RUN;
                 end;
             }
         }
+
     }
 
     var
-        myInt: Integer;
+        Navigate: Page Navigate;
 }
