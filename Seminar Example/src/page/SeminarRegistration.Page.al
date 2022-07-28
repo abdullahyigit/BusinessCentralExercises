@@ -199,5 +199,9 @@ page 70105 "Seminar Registration"
                 }
             }
         }
+
     }
+
+    var
+        Navigate: Page Navigate;
 }
