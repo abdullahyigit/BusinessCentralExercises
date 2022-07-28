@@ -175,5 +175,23 @@ page 70111 "Posted Seminar Registration"
                 ToolTip = 'Executes the Charges action.';
             }
         }
+        area(Processing)
+        {
+            action("&Navigate")
+            {
+                ApplicationArea = all;
+                Caption = '&Navigate';
+                Image = Navigate;
+                Promoted = true;
+                PromotedCategory = Process;
+                trigger OnAction()
+                begin
+                    Navigate.SetDoc(Rec."Posting Date", Rec."No.");
+                    Navigate.RUN;
+                end;
+            }
+        }
     }
+    var
+        Navigate: Page Navigate;
 }
