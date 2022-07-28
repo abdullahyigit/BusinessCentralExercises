@@ -334,6 +334,10 @@ table 70103 "Seminar Registration Header"
         end;
 
         InitRecord();
+
+        IF GETFILTER("Seminar No.") <> '' THEN
+            IF GETRANGEMIN("Seminar No.") = GETRANGEMAX("Seminar No.") THEN
+                VALIDATE("Seminar No.", GETRANGEMIN("Seminar No."));
     end;
 
     trigger OnModify()
