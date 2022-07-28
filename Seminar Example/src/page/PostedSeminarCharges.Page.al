@@ -3,7 +3,7 @@ page 70114 "Posted Seminar Charges"
     PageType = List;
     AutoSplitKey = true;
     SourceTable = "Posted Seminar Charge";
-    Caption = 'Seminar Charges';
+    Caption = 'Posted Seminar Charges';
     Editable = false;
 
     layout
