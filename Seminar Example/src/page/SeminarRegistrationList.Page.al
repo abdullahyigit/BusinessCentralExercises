@@ -105,8 +105,22 @@ page 70107 "Seminar Registration List"
                     ShortcutKey = F9;
                     RunObject = codeunit "Seminar-Post (Yes/No)";
                 }
+                action("Show My Report")
+                {
+                    ApplicationArea = all;
+                    Image = PostDocument;
+                    Caption = 'Show My Report';
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    trigger OnAction()
+                    begin
+                        MyReport.Run();
+                    end;
+                }
             }
         }
 
     }
+    var
+        MyReport: Report "Seminar Reg.-Participant List";
 }
