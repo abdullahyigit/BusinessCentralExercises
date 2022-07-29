@@ -297,6 +297,11 @@ table 70103 "Seminar Registration Header"
         {
             Caption = 'Posting No.';
         }
+        field(29; "No. Printed"; Integer)
+        {
+            Editable = false;
+            Caption = 'No. Printed';
+        }
     }
 
     keys
