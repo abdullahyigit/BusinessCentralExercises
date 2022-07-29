@@ -4,7 +4,7 @@ report 70000 "Seminar Reg.-Participant List"
     ApplicationArea = All;
     Caption = 'Seminar Reg.-Participant List';
     DefaultLayout = RDLC;
-    RDLCLayout = 'ReportLayout/MyRDLReport.rdl';
+    RDLCLayout = 'src/ReportLayout/MyRDLReport.rdl';
 
 
     dataset
@@ -75,10 +75,7 @@ report 70000 "Seminar Reg.-Participant List"
         {
             DataItemTableView = where(Number = const(1));
 
-            column("CompanyInformationName"; CompanyInformation.Name)
-            {
 
-            }
         }
 
     }
@@ -119,7 +116,7 @@ report 70000 "Seminar Reg.-Participant List"
 
     labels
     {
-        LabelName2 = 'SeminarRegistrationHeader', Comment = 'SeminarRegistrationHeader';
+        LabelName = 'Seminar Registration Header', Comment = 'Seminar Registration Header';
     }
 
     // rendering
