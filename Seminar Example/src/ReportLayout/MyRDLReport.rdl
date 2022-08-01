@@ -1136,7 +1136,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!CompanyInformation.Value</Value>
+                      <Value>=Fields!CompanyInformation_Name.Value</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -1270,11 +1270,20 @@
       </DefaultValue>
       <Prompt>Participant_NameCaption</Prompt>
     </ReportParameter>
+    <ReportParameter Name="CompanyInformation_NameCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CompanyInformation_NameCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CompanyInformation_NameCaption</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>1</NumberOfColumns>
-      <NumberOfRows>11</NumberOfRows>
+      <NumberOfRows>12</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -1330,6 +1339,11 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>10</RowIndex>
           <ParameterName>Participant_NameCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>11</RowIndex>
+          <ParameterName>CompanyInformation_NameCaption</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
@@ -1409,8 +1423,8 @@ End Function
         <Field Name="Participant_Name">
           <DataField>Participant_Name</DataField>
         </Field>
-        <Field Name="CompanyInformation">
-          <DataField>CompanyInformation</DataField>
+        <Field Name="CompanyInformation_Name">
+          <DataField>CompanyInformation_Name</DataField>
         </Field>
       </Fields>
       <Query>

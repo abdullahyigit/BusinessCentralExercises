@@ -139,15 +139,21 @@ page 70111 "Posted Seminar Registration"
             part("Details FactBox"; "Seminar Details FactBox")
             {
                 SubPageLink = "No." = field("Seminar No.");
+                ApplicationArea = All;
             }
             part("Customer Details FactBox"; "Customer Details FactBox")
             {
                 SubPageLink = "No." = field("Seminar No.");
+                ApplicationArea = All;
             }
             systempart(RecordLinks; Links)
-            { }
+            {
+                ApplicationArea = All;
+            }
             systempart(Notes; Notes)
-            { }
+            {
+                ApplicationArea = All;
+            }
         }
     }
 

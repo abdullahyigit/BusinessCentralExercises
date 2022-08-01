@@ -71,6 +71,7 @@ page 70113 "Posted Seminar Reg. List"
             {
                 SubPageLink = "No." = field("Seminar No.");
                 Caption = 'Seminar Details FactBox';
+                ApplicationArea = All;
             }
             systempart(RecordLinks; Links)
             {

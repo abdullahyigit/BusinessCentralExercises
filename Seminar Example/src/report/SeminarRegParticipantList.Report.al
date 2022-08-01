@@ -75,7 +75,10 @@ report 70000 "Seminar Reg.-Participant List"
         {
             DataItemTableView = where(Number = const(1));
 
-
+            column(CompanyInformation_Name; CompanyInformation.Name)
+            {
+                IncludeCaption = true;
+            }
         }
 
     }
