@@ -168,7 +168,6 @@ table 70108 "Seminar Ledger Entry"
             DataClassification = ToBeClassified;
             Caption = 'User ID';
         }
-
     }
 
     keys
@@ -178,6 +177,9 @@ table 70108 "Seminar Ledger Entry"
             Clustered = true;
         }
         key(Key2; "Document No.", "Posting Date")
+        {
+        }
+        key(Key3; "Seminar No.", "Posting Date", "Charge Type", Chargeable)
         {
         }
     }
