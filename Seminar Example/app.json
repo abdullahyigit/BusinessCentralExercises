@@ -13,6 +13,7 @@
   "dependencies": [],
   "screenshots": [],
   "platform": "1.0.0.0",
+  "target": "OnPrem",
   "application": "20.0.0.0",
   "idRanges": [
     {
