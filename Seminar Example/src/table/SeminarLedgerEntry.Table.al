@@ -182,6 +182,9 @@ table 70108 "Seminar Ledger Entry"
         key(Key3; "Seminar No.", "Posting Date", "Charge Type", Chargeable)
         {
         }
+        key(Key4; "Bill-to Customer No.", "Document No.", "Charge Type", "Participant Contact No.")
+        {
+        }
     }
 
     var
