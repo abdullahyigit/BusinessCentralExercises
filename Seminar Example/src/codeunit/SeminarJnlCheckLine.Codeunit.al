@@ -57,12 +57,12 @@ codeunit 70000 "Seminar Jnl.-Check Line"
         END;
 
         IF (SemJnlLine."Posting Date" < AllowPostingFrom) OR (SemJnlLine."Posting Date" > AllowPostingTo)
-        THEN
+        THEN begin
             SemJnlLine.FIELDERROR("Posting Date", Text001);
+        end;
 
         IF (SemJnlLine."Document Date" <> 0D) THEN
             IF (SemJnlLine."Document Date" = CLOSINGDATE(SemJnlLine."Document Date")) THEN
                 SemJnlLine.FIELDERROR("Document Date", Text000);
-
     end;
 }

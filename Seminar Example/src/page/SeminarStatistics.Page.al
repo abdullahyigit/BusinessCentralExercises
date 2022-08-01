@@ -12,7 +12,7 @@ page 70115 "Seminar Statistics"
             group(General)
             {
                 Caption = 'General';
-                fixed(aaa)
+                fixed(FixedLayout)
                 {
                     group("This Period")
                     {
