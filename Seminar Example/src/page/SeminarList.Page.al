@@ -103,6 +103,18 @@ page 70103 "Seminar List"
                     RunPageLink = "Seminar No." = field("No.");
                     ApplicationArea = all;
                 }
+                action("&Statistics")
+                {
+                    Caption = '&Statistics';
+                    Image = Statistics;
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    PromotedIsBig = true;
+                    ShortcutKey = "F7";
+                    RunObject = page "Seminar Statistics";
+                    RunPageLink = "No." = FIELD("No.");
+                    ApplicationArea = all;
+                }
             }
         }
     }
