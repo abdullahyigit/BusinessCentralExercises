@@ -142,6 +142,11 @@ table 70109 "Posted Seminar Reg. Header"
             Caption = 'Source Code';
             TableRelation = "Source Code";
         }
+        field(30; "No. Printed"; Integer)
+        {
+            Editable = false;
+            Caption = 'No. Printed';
+        }
 
     }
 

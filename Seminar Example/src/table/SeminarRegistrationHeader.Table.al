@@ -293,11 +293,22 @@ table 70103 "Seminar Registration Header"
             end;
 
         }
-        field(28; "Posting No."; Code[20])
+        field(31; "Posting No."; Code[20])
         {
             Caption = 'Posting No.';
         }
-        field(29; "No. Printed"; Integer)
+        field(28; "User ID"; Code[20])
+        {
+            Caption = 'User ID';
+            TableRelation = User."User Name";
+            ValidateTableRelation = false;
+        }
+        field(29; "Source Code"; Code[10])
+        {
+            Caption = 'Source Code';
+            TableRelation = "Source Code";
+        }
+        field(30; "No. Printed"; Integer)
         {
             Editable = false;
             Caption = 'No. Printed';
