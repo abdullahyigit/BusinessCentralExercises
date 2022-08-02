@@ -8,12 +8,14 @@ report 70001 "Create Seminar Invoices"
     {
         dataitem(SemiarLedgerEntry; "Seminar Ledger Entry")
         {
+            RequestFilterFields = "Bill-to Customer No.", "Seminar No.", "Posting Date";
             DataItemTableView = sorting("Bill-to Customer No.", "Document No.", "Charge Type", "Participant Contact No.");
 
             trigger OnPreDataItem()
             begin
-                if PostingDateReq = 0D then
+                if PostingDateReq = 0D then begin
                     Error(Text000);
+                end;
                 if DocDateReq = 0D then
                     Error(Text001);
                 Window.Open(Text002 + Text003 + Text004);
@@ -21,53 +23,58 @@ report 70001 "Create Seminar Invoices"
 
             trigger OnAfterGetRecord()
             begin
-                if "Bill-to Customer No." <> Customer."No." then
-                    Customer.Get("Bill-to Customer No.");
-                if Customer.Blocked in [Customer.Blocked::All, Customer.Blocked::Invoice] then begin
-                    NoOfSalesInvErrors += 1;
-                end else begin
-                    if SemiarLedgerEntry."Bill-to Customer No." <> SalesHeader."Bill-to Customer No." then begin
-                        Window.Update(1, "Bill-to Customer No.");
-                        if (SalesHeader."No." <> '') then
+                IF "Bill-to Customer No." <> Customer."No." THEN
+                    Customer.GET("Bill-to Customer No.");
+
+                IF Customer.Blocked IN [Customer.Blocked::All, Customer.Blocked::Invoice] THEN BEGIN
+                    NoOfSalesInvErrors := NoOfSalesInvErrors + 1;
+                END ELSE BEGIN
+                    IF SemiarLedgerEntry."Bill-to Customer No." <> SalesHeader."Bill-to Customer No." THEN BEGIN
+                        Window.UPDATE(1, "Bill-to Customer No.");
+                        IF SalesHeader."No." <> '' THEN
                             FinalizeSalesInvoiceHeader();
                         InsertSalesInvoiceHeader();
-                    end;
+                    END;
                     Window.UPDATE(2, "Seminar Registration No.");
-                    case "Type" of
+                    CASE Type OF
                         Type::Resource:
-                            begin
+                            BEGIN
                                 SalesLine.Type := SalesLine.Type::Resource;
-                                case "Charge Type" of
+                                CASE "Charge Type" OF
                                     "Charge Type"::Instructor:
                                         SalesLine."No." := "Instructor Resource No.";
                                     "Charge Type"::Room:
                                         SalesLine."No." := "Room Resource No.";
                                     "Charge Type"::Participant:
                                         SalesLine."No." := "Instructor Resource No.";
-                                end;
-                            end;
-                    end;
+                                END;
+                            END;
+                    END;
+
                     SalesLine."Document Type" := SalesHeader."Document Type";
                     SalesLine."Document No." := SalesHeader."No.";
                     SalesLine."Line No." := NextLineNo;
-                    SalesLine.Validate("No.");
-                    Seminar.Get("Seminar No.");
-                    if SemiarLedgerEntry.Description <> '' then
+                    SalesLine.VALIDATE("No.");
+                    Seminar.GET("Seminar No.");
+
+                    IF SemiarLedgerEntry.Description <> '' THEN
                         SalesLine.Description := SemiarLedgerEntry.Description
-                    else
+                    ELSE
                         SalesLine.Description := Seminar.Name;
-
-
                     SalesLine."Unit Price" := "Unit Price";
-                    if SalesHeader."Currency Code" <> '' then begin
-                        SalesHeader.TestField("Currency Factor");
-                        SalesLine."Unit Price" := Round(CurrencyExchRate.ExchangeAmtLCYToFCY(
-                            WORKDATE, SalesHeader."Currency Code", SalesLine."Unit Price", SalesHeader."Currency Factor"));
-                    end;
-                    SalesLine.Validate(Quantity, Quantity);
-                    SalesLine.Insert();
+                    IF SalesHeader."Currency Code" <> '' THEN BEGIN
+                        SalesHeader.TESTFIELD("Currency Factor");
+                        SalesLine."Unit Price" :=
+                        ROUND(
+                        CurrencyExchRate.ExchangeAmtLCYToFCY(
+                        WORKDATE, SalesHeader."Currency Code",
+                        SalesLine."Unit Price", SalesHeader."Currency Factor"));
+                    END;
+                    SalesLine.VALIDATE(Quantity, Quantity);
+                    SalesLine.INSERT;
                     NextLineNo := NextLineNo + 10000;
-                end;
+                END;
+
             end;
 
             trigger OnPostDataItem()
@@ -89,6 +96,8 @@ report 70001 "Create Seminar Invoices"
 
     requestpage
     {
+        SaveValues = true;
+
         layout
         {
             area(Content)
@@ -98,18 +107,22 @@ report 70001 "Create Seminar Invoices"
                     field(PostingDateReq; PostingDateReq)
                     {
                         ApplicationArea = all;
+                        Caption = 'Posting Date';
                     }
                     field(DocDateReq; DocDateReq)
                     {
                         ApplicationArea = all;
+                        Caption = 'Document Date';
                     }
                     field(CalcInvoiceDiscount; CalcInvoiceDiscount)
                     {
                         ApplicationArea = all;
+                        Caption = 'Calc. Inv. Discount';
                     }
                     field(PostInvoices; PostInvoices)
                     {
                         ApplicationArea = all;
+                        Caption = 'Post Invoices';
                     }
                 }
             }
@@ -155,31 +168,39 @@ report 70001 "Create Seminar Invoices"
 
     local procedure FinalizeSalesInvoiceHeader()
     begin
-        if CalcInvoiceDiscount = true then
-            SalesCalcDiscount.Run(SalesLine);
-        SalesHeader.Get(SalesHeader."Document Type", SalesHeader."No.");
-        Commit();
-        Clear(SalesCalcDiscount);
-        Clear(SalesPost);
-        NoOfSalesInv += 1;
-        if PostInvoices then
-            NoOfSalesInvErrors += 1;
+        WITH SalesHeader DO BEGIN
+            IF CalcInvoiceDiscount THEN
+                SalesCalcDiscount.RUN(SalesLine);
+            GET("Document Type", "No.");
+            COMMIT;
+            CLEAR(SalesCalcDiscount);
+            CLEAR(SalesPost);
+            NoOfSalesInv := NoOfSalesInv + 1;
+            IF PostInvoices THEN BEGIN
+                CLEAR(SalesPost);
+                IF NOT SalesPost.RUN(SalesHeader) THEN
+                    NoOfSalesInvErrors := NoOfSalesInvErrors + 1;
+            END;
+        end;
+
     end;
 
     local procedure InsertSalesInvoiceHeader()
     begin
-        SalesHeader.Init();
-        SalesHeader."Document Type" := SalesHeader."Document Type"::Invoice;
-        SalesHeader."No." := '';
-        SalesHeader.Insert(true);
-        SalesHeader.Validate("Sell-to Customer No.", SemiarLedgerEntry."Bill-to Customer No.");
-        if SemiarLedgerEntry."Bill-to Customer No." <> SalesHeader."Sell-to Customer No." then
-            SalesHeader.Validate("Bill-to Customer No.", SemiarLedgerEntry."Bill-to Customer No.");
-        SalesHeader.Validate("Posting Date", PostingDateReq);
-        SalesHeader.Validate("Document Date", DocDateReq);
-        SalesHeader.Validate("Currency Code", '');
-        SalesHeader.Modify();
-        Commit();
-        NextLineNo := 10000;
+        WITH SalesHeader DO BEGIN
+            INIT;
+            "Document Type" := "Document Type"::Invoice;
+            "No." := '';
+            INSERT(TRUE);
+            VALIDATE("Sell-to Customer No.", SemiarLedgerEntry."Bill-to Customer No.");
+            IF "Bill-to Customer No." <> "Sell-to Customer No." THEN
+                VALIDATE("Bill-to Customer No.", SemiarLedgerEntry."Bill-to Customer No.");
+            VALIDATE("Posting Date", PostingDateReq);
+            VALIDATE("Document Date", DocDateReq);
+            VALIDATE("Currency Code", '');
+            MODIFY;
+            COMMIT;
+            NextLineNo := 10000;
+        END;
     end;
 }
