@@ -756,6 +756,7 @@
                                   <Value>=Parameters!Bill_to_Customer_No_Caption.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>Blue</Color>
                                   </Style>
                                 </TextRun>
@@ -789,6 +790,7 @@
                                   <Value>=Parameters!Participant_Contact_No_Caption.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>Blue</Color>
                                   </Style>
                                 </TextRun>
@@ -822,6 +824,7 @@
                                   <Value>=Parameters!Participant_NameCaption.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                     <Color>Blue</Color>
                                   </Style>
                                 </TextRun>
@@ -1136,8 +1139,10 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Fields!CompanyInformation_Name.Value</Value>
-                      <Style />
+                      <Value>=Last(Fields!CompanyInformation_Name.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
