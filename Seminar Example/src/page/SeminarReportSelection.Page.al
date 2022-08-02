@@ -10,6 +10,17 @@ page 70116 "Seminar Report Selection"
     {
         area(Content)
         {
+            field(ReportUsage; ReportUsage)
+            {
+                ApplicationArea = all;
+                Caption = 'Usage';
+                ToolTip = 'Specifies which type of document the report is used for.';
+
+                trigger OnValidate()
+                begin
+                    SetUsageFilter();
+                end;
+            }
             repeater(GroupName)
             {
                 field(Sequence; Rec.Sequence)
@@ -57,7 +68,7 @@ page 70116 "Seminar Report Selection"
     }
 
     var
-        ReportUsage: Label 'Registration';
+        ReportUsage: enum "Report Selection Usage Seminar";
 
     trigger OnOpenPage()
     begin
@@ -71,8 +82,11 @@ page 70116 "Seminar Report Selection"
 
     local procedure SetUsageFilter()
     begin
-        if ReportUsage = 'Registration' then
-            Rec.SetRange(Usage, Rec.Usage::Registration);
+        case ReportUsage of
+            "Report Selection Usage Seminar"::Registration:
+                Rec.SetRange(Usage, Rec.Usage::Registration);
+        end;
+
     end;
 
     local procedure ReportUsageOnAfterValidate()
