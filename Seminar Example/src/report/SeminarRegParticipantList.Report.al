@@ -79,7 +79,16 @@ report 70000 "Seminar Reg.-Participant List"
             {
                 IncludeCaption = true;
             }
+
+            trigger OnPreDataItem()
+            begin
+                CompanyInformation.Get();
+            end;
+
         }
+
+
+
 
     }
 
