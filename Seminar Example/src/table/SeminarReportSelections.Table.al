@@ -15,7 +15,7 @@ table 70112 "Seminar Report Selections"
 
         field(3; "Report ID"; Integer)
         {
-            TableRelation = Object.ID where("Type" = const("Report"));
+            TableRelation = AllObjWithCaption."Object ID" where("Object Type" = const("Report"));
             trigger OnValidate()
             begin
                 CalcFields("Report Name");
