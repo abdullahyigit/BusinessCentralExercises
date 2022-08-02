@@ -198,6 +198,16 @@ page 70105 "Seminar Registration"
                     RunObject = codeunit "Seminar-Post (Yes/No)";
                 }
             }
+            group(Registration)
+            {
+                action(Print)
+                {
+                    ApplicationArea = all;
+                    Image = Print;
+                    Promoted = true;
+                    RunObject = report "Seminar Reg.-Participant List";
+                }
+            }
         }
 
     }
