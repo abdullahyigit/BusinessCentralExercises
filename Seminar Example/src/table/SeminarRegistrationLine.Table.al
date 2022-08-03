@@ -25,7 +25,6 @@ table 70102 "Seminar Registration Line"
             trigger OnValidate()
             var
             begin
-
                 IF "Bill-to Customer No." <> xRec."Bill-to Customer No." THEN BEGIN
                     IF Registered THEN BEGIN
                         ERROR(Text001,
@@ -34,7 +33,7 @@ table 70102 "Seminar Registration Line"
                           Registered);
                     END;
                 END;
-                ;
+                CreateDim(DATABASE::Customer, "Bill-to Customer No.");
             end;
 
 
@@ -191,7 +190,32 @@ table 70102 "Seminar Registration Line"
             DataClassification = ToBeClassified;
             Caption = 'Registered';
             Editable = false;
-
+        }
+        field(15; "Shortcut Dimension 1 Code"; Code[20])
+        {
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(1));
+            CaptionClass = '';
+            trigger OnValidate()
+            begin
+                ValidateShortcutDimCode(1, "Shortcut Dimension 1 Code");
+            end;
+        }
+        field(16; "Shortcut Dimension 2 Code"; Code[20])
+        {
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2));
+            CaptionClass = '';
+            trigger OnValidate()
+            begin
+                ValidateShortcutDimCode(2, "Shortcut Dimension 2 Code");
+            end;
+        }
+        field(17; "Dimension Set ID"; Integer)
+        {
+            TableRelation = "Dimension Set Entry"."Dimension Set ID";
+            trigger OnLookup()
+            begin
+                ShowDimensions();
+            end;
         }
     }
 
@@ -212,6 +236,7 @@ table 70102 "Seminar Registration Line"
         SkipBillToContact: Boolean;
         Text001: TextConst ENU = 'You cannot change the %1, because %2 is %3.';
         Text002: TextConst ENU = 'Contact %1 %2 is related to a different company than customer %3.';
+        DimMgt: Codeunit DimensionManagement;
 
     trigger OnInsert()
     begin
@@ -259,4 +284,57 @@ table 70102 "Seminar Registration Line"
         Amount := ROUND("Seminar Price" - "Line Discount Amount", GLSetup."Amount Rounding Precision");
     END;
 
+    procedure ShowDimensions()
+    begin
+        "Dimension Set ID" :=
+        DimMgt.EditDimensionSet("Dimension Set ID", StrSubstNo('%1 %2', "Document No.", "Line No."));
+        DimMgt.UpdateGlobalDimFromDimSetID("Dimension Set ID", "Shortcut Dimension 1 Code", "Shortcut Dimension 2 Code");
+    end;
+
+    procedure CreateDim(Type1: Integer; No1: Code[20])
+    var
+        SourceCodeSetup: Record "Source Code Setup";
+        DefaultDimSource: List of [Dictionary of [Integer, Code[20]]];
+    begin
+        SourceCodeSetup.GET;
+        DimMgt.AddDimSource(DefaultDimSource, Type1, No1);
+        "Shortcut Dimension 1 Code" := '';
+        "Shortcut Dimension 2 Code" := '';
+        GetSeminarRegHeader;
+        "Dimension Set ID" := DimMgt.GetDefaultDimID(
+            DefaultDimSource, SourceCodeSetup.Seminar,
+            "Shortcut Dimension 1 Code",
+            "Shortcut Dimension 2 Code",
+            SeminarRegHeader."Dimension Set ID",
+            DATABASE::Seminar);
+        DimMgt.UpdateGlobalDimFromDimSetID(
+            "Dimension Set ID",
+            "Shortcut Dimension 1 Code",
+            "Shortcut Dimension 2 Code");
+    end;
+
+    procedure ValidateShortcutDimCode(FieldNumber: Integer; var ShortcutDimCode: Code[20])
+    begin
+        DimMgt.ValidateShortcutDimValues(
+            FieldNumber,
+            ShortcutDimCode,
+            "Dimension Set ID");
+    end;
+
+    procedure LookupShortcutDimCode(FieldNumber: Integer; var ShortcutDimCode: Code[20])
+    begin
+        DimMgt.LookupDimValueCode(
+            FieldNumber,
+            ShortcutDimCode);
+        ValidateShortcutDimCode(
+            FieldNumber,
+            ShortcutDimCode);
+    end;
+
+    procedure ShowShortcutDimCode(var ShortcutDimCode: array[8] of Code[20])
+    begin
+        DimMgt.GetShortcutDimensions(
+            "Dimension Set ID",
+            ShortcutDimCode);
+    end;
 }
