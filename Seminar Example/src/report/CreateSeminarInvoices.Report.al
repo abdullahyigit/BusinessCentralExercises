@@ -168,39 +168,35 @@ report 70001 "Create Seminar Invoices"
 
     local procedure FinalizeSalesInvoiceHeader()
     begin
-        WITH SalesHeader DO BEGIN
-            IF CalcInvoiceDiscount THEN
-                SalesCalcDiscount.RUN(SalesLine);
-            GET("Document Type", "No.");
-            COMMIT;
-            CLEAR(SalesCalcDiscount);
+        IF CalcInvoiceDiscount THEN
+            SalesCalcDiscount.RUN(SalesLine);
+        SalesHeader.GET(SalesHeader."Document Type", SalesHeader."No.");
+        COMMIT;
+        CLEAR(SalesCalcDiscount);
+        CLEAR(SalesPost);
+        NoOfSalesInv := NoOfSalesInv + 1;
+        IF PostInvoices THEN BEGIN
             CLEAR(SalesPost);
-            NoOfSalesInv := NoOfSalesInv + 1;
-            IF PostInvoices THEN BEGIN
-                CLEAR(SalesPost);
-                IF NOT SalesPost.RUN(SalesHeader) THEN
-                    NoOfSalesInvErrors := NoOfSalesInvErrors + 1;
-            END;
-        end;
+            IF NOT SalesPost.RUN(SalesHeader) THEN
+                NoOfSalesInvErrors := NoOfSalesInvErrors + 1;
+        END;
 
     end;
 
     local procedure InsertSalesInvoiceHeader()
     begin
-        WITH SalesHeader DO BEGIN
-            INIT;
-            "Document Type" := "Document Type"::Invoice;
-            "No." := '';
-            INSERT(TRUE);
-            VALIDATE("Sell-to Customer No.", SemiarLedgerEntry."Bill-to Customer No.");
-            IF "Bill-to Customer No." <> "Sell-to Customer No." THEN
-                VALIDATE("Bill-to Customer No.", SemiarLedgerEntry."Bill-to Customer No.");
-            VALIDATE("Posting Date", PostingDateReq);
-            VALIDATE("Document Date", DocDateReq);
-            VALIDATE("Currency Code", '');
-            MODIFY;
-            COMMIT;
-            NextLineNo := 10000;
-        END;
+        SalesHeader.INIT;
+        SalesHeader."Document Type" := SalesHeader."Document Type"::Invoice;
+        SalesHeader."No." := '';
+        SalesHeader.INSERT(TRUE);
+        SalesHeader.VALIDATE("Sell-to Customer No.", SemiarLedgerEntry."Bill-to Customer No.");
+        IF SalesHeader."Bill-to Customer No." <> SalesHeader."Sell-to Customer No." THEN
+            SalesHeader.VALIDATE("Bill-to Customer No.", SemiarLedgerEntry."Bill-to Customer No.");
+        SalesHeader.VALIDATE("Posting Date", PostingDateReq);
+        SalesHeader.VALIDATE("Document Date", DocDateReq);
+        SalesHeader.VALIDATE("Currency Code", '');
+        SalesHeader.MODIFY;
+        COMMIT;
+        NextLineNo := 10000;
     end;
 }
