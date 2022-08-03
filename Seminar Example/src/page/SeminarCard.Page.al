@@ -124,6 +124,15 @@ page 70102 "Seminar Card"
                     RunPageLink = "No." = FIELD("No.");
                     ApplicationArea = all;
                 }
+                action("Dimensions")
+                {
+                    Caption = 'Dimensions';
+                    ApplicationArea = all;
+                    Image = Dimensions;
+                    ShortcutKey = "Shift+Ctrl+D";
+                    RunObject = page "Default Dimensions";
+                    RunPageLink = "Table ID" = const(70101), "No." = field("No.");
+                }
             }
             group("&Registrations")
             {
