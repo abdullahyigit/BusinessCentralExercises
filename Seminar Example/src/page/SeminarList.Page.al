@@ -115,6 +115,29 @@ page 70103 "Seminar List"
                     RunPageLink = "No." = FIELD("No.");
                     ApplicationArea = all;
                 }
+                action("Dimensions-Single")
+                {
+                    Caption = 'Dimensions-Single';
+                    ApplicationArea = all;
+                    Image = Dimensions;
+                    ShortcutKey = "Shift+Ctrl+D";
+                    RunObject = page "Default Dimensions";
+                    RunPageLink = "Table ID" = const(70101), "No." = field("No.");
+                }
+                action("Dimensions-Multiple")
+                {
+                    Caption = 'Dimensions-Multile';
+                    ApplicationArea = all;
+                    trigger OnAction()
+                    var
+                        Seminar: Record Seminar;
+                        DefaultDimMultiple: page "Default Dimensions-Multiple";
+                    begin
+                        CurrPage.SetSelectionFilter(Seminar);
+                        DefaultDimMultiple.SetMultiSeminar(Seminar);
+                        DefaultDimMultiple.RunModal();
+                    end;
+                }
             }
         }
     }
