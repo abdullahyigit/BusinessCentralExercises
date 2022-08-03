@@ -1,10 +1,6 @@
 tableextension 70001 "DefaultDimension" extends "Default Dimension"
 {
     var
-        GlobalDimCodeNo: Integer;
-        SeminarNo: Code[20];
-        NewDimValue: Code[20];
-
     procedure UpdateSeminarGlobalDimCode(GlobalDimCodeNo: Integer; SeminarNo: Code[20]; NewDimValue: Code[20])
     var
         Seminar: Record Seminar;
