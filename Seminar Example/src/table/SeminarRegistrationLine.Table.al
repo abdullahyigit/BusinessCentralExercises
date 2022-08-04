@@ -194,7 +194,6 @@ table 70102 "Seminar Registration Line"
         field(15; "Shortcut Dimension 1 Code"; Code[20])
         {
             TableRelation = "Dimension Value".Code where("Global Dimension No." = const(1));
-            CaptionClass = '';
             trigger OnValidate()
             begin
                 ValidateShortcutDimCode(1, "Shortcut Dimension 1 Code");
@@ -203,7 +202,6 @@ table 70102 "Seminar Registration Line"
         field(16; "Shortcut Dimension 2 Code"; Code[20])
         {
             TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2));
-            CaptionClass = '';
             trigger OnValidate()
             begin
                 ValidateShortcutDimCode(2, "Shortcut Dimension 2 Code");
@@ -246,7 +244,6 @@ table 70102 "Seminar Registration Line"
             "Seminar Price" := SeminarRegHeader."Seminar Price";
             Amount := SeminarRegHeader."Seminar Price";
         END;
-        Message(Format("Line No."));
     end;
 
     trigger OnModify()
