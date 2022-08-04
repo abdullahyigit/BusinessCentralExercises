@@ -14,9 +14,17 @@ codeunit 70000 "Seminar Jnl.-Check Line"
         AllowPostingTo: Date;
         Text000: Label '%1 cannot be a closing date.';
         Text001: Label '%1 is not within your range of allowed posting dates.';
+        Text002: Label 'The combination of dimensions used in %1 %2, %3, %4 is blocked. %5';
+        Text003: Label 'A dimension used in %1 %2, %3, %4 has caused an error. %5';
+        DimMgt: Codeunit DimensionManagement;
+
 
 
     procedure RunCheck(var SemJnlLine: Record "Seminar Journal Line")
+
+    var
+        TableID: array[10] of Integer;
+        No: array[10] of Code[20];
 
     begin
         IF SemJnlLine.EmptyLine THEN
@@ -64,5 +72,24 @@ codeunit 70000 "Seminar Jnl.-Check Line"
         IF (SemJnlLine."Document Date" <> 0D) THEN
             IF (SemJnlLine."Document Date" = CLOSINGDATE(SemJnlLine."Document Date")) THEN
                 SemJnlLine.FIELDERROR("Document Date", Text000);
+
+        IF NOT DimMgt.CheckDimIDComb(SemJnlLine."Dimension Set ID") THEN
+            ERROR(
+            Text002, SemJnlLine.TABLECAPTION, SemJnlLine."Journal Template Name", SemJnlLine."Journal Batch Name", SemJnlLine."Line No.", DimMgt.GetDimCombErr);
+        TableID[1] := DATABASE::Seminar;
+        No[1] := SemJnlLine."Seminar No.";
+        TableID[2] := DATABASE::Resource;
+        No[2] := SemJnlLine."Instructor Resource No.";
+        TableID[3] := DATABASE::Resource;
+        No[3] := SemJnlLine."Room Resource No.";
+        IF NOT DimMgt.CheckDimValuePosting(TableID, No, SemJnlLine."Dimension Set ID") THEN
+            IF SemJnlLine."Line No." <> 0 THEN
+                ERROR(
+                   Text003,
+                SemJnlLine.TABLECAPTION, SemJnlLine."Journal Template Name",
+                SemJnlLine."Journal Batch Name", SemJnlLine."Line No.",
+                DimMgt.GetDimValuePostingErr)
+            ELSE
+                ERROR(DimMgt.GetDimValuePostingErr);
     end;
 }
