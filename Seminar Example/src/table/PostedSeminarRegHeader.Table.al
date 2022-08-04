@@ -142,10 +142,27 @@ table 70109 "Posted Seminar Reg. Header"
             Caption = 'Source Code';
             TableRelation = "Source Code";
         }
-        field(30; "No. Printed"; Integer)
+        field(30; "Shortcut Dimension 1 Code"; Code[20])
+        {
+            CaptionClass = '1,2,1';
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(1));
+            Caption = 'Shortcut Dimension 1 Code';
+        }
+        field(31; "Shortcut Dimension 2 Code"; Code[20])
+        {
+            CaptionClass = '1,2,2';
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2));
+            Caption = 'Shortcut Dimension 2 Code';
+        }
+        field(32; "Dimension Set ID"; Integer)
         {
             Editable = false;
-            Caption = 'No. Printed';
+            Caption = 'Dimension Set ID';
+            TableRelation = "Dimension Set Entry"."Dimension Set ID";
+            trigger OnLookup()
+            begin
+                ShowDimensions();
+            end;
         }
 
     }
@@ -156,5 +173,17 @@ table 70109 "Posted Seminar Reg. Header"
         {
             Clustered = true;
         }
+        key(Key2; "Room Resource No.")
+        {
+            SumIndexFields = Duration;
+        }
     }
+
+    var
+        DimMgt: Codeunit DimensionManagement;
+
+    procedure ShowDimensions()
+    begin
+        DimMgt.ShowDimensionSet("Dimension Set ID", StrSubstNo('%1 %2', TableCaption, "No."));
+    end;
 }
