@@ -8,7 +8,7 @@
             "environmentType": "Sandbox",
             "environmentName": "Yigit",
             "tenant": "bab5cdd3-8af5-4117-ba71-ff44f9cff12d",
-            "startupObjectId": 70102,
+            "startupObjectId": 70106,
             "startupObjectType": "Table",
             "breakOnError": true,
             "launchBrowser": true,
