@@ -109,6 +109,14 @@ page 70108 "Seminar Ledger Entries"
                     ToolTip = 'Specifies the value of the Seminar Registration No. field.';
                     ApplicationArea = All;
                 }
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
+                {
+                    ApplicationArea = all;
+                }
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
+                {
+                    ApplicationArea = all;
+                }
                 field("Entry No."; Rec."Entry No.")
                 {
                     ToolTip = 'Specifies the value of the Entry No. field.';
@@ -147,6 +155,17 @@ page 70108 "Seminar Ledger Entries"
                 begin
                     Navigate.SetDoc(Rec."Posting Date", Rec."Document No.");
                     Navigate.RUN;
+                end;
+            }
+
+            action("Dimensions")
+            {
+                ApplicationArea = all;
+                Image = Dimensions;
+                Caption = 'Dimensions';
+                trigger OnAction()
+                begin
+                    Rec.ShowDimensions();
                 end;
             }
         }
