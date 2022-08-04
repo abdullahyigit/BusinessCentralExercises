@@ -168,6 +168,29 @@ table 70108 "Seminar Ledger Entry"
             DataClassification = ToBeClassified;
             Caption = 'User ID';
         }
+
+        field(29; "Global Dimension 1 Code"; Code[20])
+        {
+            CaptionClass = '1,2,1';
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(1));
+            Caption = 'Global Dimension 1 Code';
+        }
+        field(30; "Global Dimension 2 Code"; Code[20])
+        {
+            CaptionClass = '1,2,2';
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2));
+            Caption = 'Global Dimension 2 Code';
+        }
+        field(31; "Dimension Set ID"; Integer)
+        {
+            Editable = false;
+            Caption = 'Dimension Set ID';
+            TableRelation = "Dimension Set Entry"."Dimension Set ID";
+            trigger OnLookup()
+            begin
+                ShowDimensions();
+            end;
+        }
     }
 
     keys
@@ -188,26 +211,11 @@ table 70108 "Seminar Ledger Entry"
     }
 
     var
-        myInt: Integer;
+        DimMgt: Codeunit DimensionManagement;
 
-    trigger OnInsert()
+    procedure ShowDimensions()
     begin
-
-    end;
-
-    trigger OnModify()
-    begin
-
-    end;
-
-    trigger OnDelete()
-    begin
-
-    end;
-
-    trigger OnRename()
-    begin
-
+        DimMgt.ShowDimensionSet("Dimension Set ID", StrSubstNo('%1 %2', TableCaption, "Entry No."));
     end;
 
 }
