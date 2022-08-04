@@ -142,19 +142,24 @@ table 70109 "Posted Seminar Reg. Header"
             Caption = 'Source Code';
             TableRelation = "Source Code";
         }
-        field(30; "Shortcut Dimension 1 Code"; Code[20])
+        field(30; "No. Printed"; Integer)
+        {
+            Editable = false;
+            Caption = 'No. Printed';
+        }
+        field(31; "Shortcut Dimension 1 Code"; Code[20])
         {
             CaptionClass = '1,2,1';
-            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(1));
+            TableRelation = "Dimension Value"."Code" where("Global Dimension No." = const(1));
             Caption = 'Shortcut Dimension 1 Code';
         }
-        field(31; "Shortcut Dimension 2 Code"; Code[20])
+        field(32; "Shortcut Dimension 2 Code"; Code[20])
         {
             CaptionClass = '1,2,2';
-            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2));
+            TableRelation = "Dimension Value"."Code" where("Global Dimension No." = const(2));
             Caption = 'Shortcut Dimension 2 Code';
         }
-        field(32; "Dimension Set ID"; Integer)
+        field(33; "Dimension Set ID"; Integer)
         {
             Editable = false;
             Caption = 'Dimension Set ID';
