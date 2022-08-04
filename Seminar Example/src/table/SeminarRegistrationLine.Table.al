@@ -193,7 +193,7 @@ table 70102 "Seminar Registration Line"
         }
         field(15; "Shortcut Dimension 1 Code"; Code[20])
         {
-            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(1));
+            TableRelation = "Dimension Value"."Code" where("Global Dimension No." = const(1));
             trigger OnValidate()
             begin
                 ValidateShortcutDimCode(1, "Shortcut Dimension 1 Code");
@@ -201,7 +201,7 @@ table 70102 "Seminar Registration Line"
         }
         field(16; "Shortcut Dimension 2 Code"; Code[20])
         {
-            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2));
+            TableRelation = "Dimension Value"."Code" where("Global Dimension No." = const(2));
             trigger OnValidate()
             begin
                 ValidateShortcutDimCode(2, "Shortcut Dimension 2 Code");

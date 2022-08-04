@@ -145,13 +145,13 @@ table 70106 "Seminar Journal Line"
         field(29; "Shortcut Dimension 1 Code"; Code[20])
         {
             CaptionClass = '1,2,1';
-            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(1));
+            TableRelation = "Dimension Value"."Code" where("Global Dimension No." = const(1));
             Caption = 'Shortcut Dimension 1 Code';
         }
         field(30; "Shortcut Dimension 2 Code"; Code[20])
         {
             CaptionClass = '1,2,2';
-            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2));
+            TableRelation = "Dimension Value"."Code" where("Global Dimension No." = const(2));
             Caption = 'Shortcut Dimension 2 Code';
         }
         field(31; "Dimension Set ID"; Integer)

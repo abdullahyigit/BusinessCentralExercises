@@ -140,7 +140,7 @@ table 70101 "Seminar"
         }
         field(19; "Global Dimension 1 Code"; Code[20])
         {
-            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(1));
+            TableRelation = "Dimension Value"."Code" where("Global Dimension No." = const(1));
             CaptionClass = '1,1,1';
             trigger OnValidate()
             begin
@@ -149,7 +149,7 @@ table 70101 "Seminar"
         }
         field(20; "Global Dimension 2 Code"; Code[20])
         {
-            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2));
+            TableRelation = "Dimension Value"."Code" where("Global Dimension No." = const(2));
             CaptionClass = '1,1,2';
             trigger OnValidate()
             begin

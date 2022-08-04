@@ -77,13 +77,13 @@ table 70110 "Posted Seminar Reg. Line"
         field(15; "Shortcut Dimension 1 Code"; Code[20])
         {
             CaptionClass = '1,2,1';
-            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(1));
+            TableRelation = "Dimension Value"."Code" where("Global Dimension No." = const(1));
             Caption = 'Shortcut Dimension 1 Code';
         }
         field(16; "Shortcut Dimension 2 Code"; Code[20])
         {
             CaptionClass = '1,2,2';
-            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2));
+            TableRelation = "Dimension Value"."Code" where("Global Dimension No." = const(2));
             Caption = 'Shortcut Dimension 2 Code';
         }
         field(17; "Dimension Set ID"; Integer)

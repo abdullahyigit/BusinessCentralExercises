@@ -168,17 +168,16 @@ table 70108 "Seminar Ledger Entry"
             DataClassification = ToBeClassified;
             Caption = 'User ID';
         }
-
         field(29; "Global Dimension 1 Code"; Code[20])
         {
-            CaptionClass = '1,2,1';
-            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(1));
+            CaptionClass = '1,1,1';
+            TableRelation = "Dimension Value"."Code" where("Global Dimension No." = const(1));
             Caption = 'Global Dimension 1 Code';
         }
         field(30; "Global Dimension 2 Code"; Code[20])
         {
-            CaptionClass = '1,2,2';
-            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2));
+            CaptionClass = '1,1,2';
+            TableRelation = "Dimension Value"."Code" where("Global Dimension No." = const(2));
             Caption = 'Global Dimension 2 Code';
         }
         field(31; "Dimension Set ID"; Integer)

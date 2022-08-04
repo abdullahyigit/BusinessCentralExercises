@@ -50,7 +50,7 @@ table 70103 "Seminar Registration Header"
                     Seminar.GET("Seminar No.");
                     Seminar.TESTFIELD(Blocked, FALSE);
                     Seminar.TESTFIELD("Gen. Prod. Posting Group");
-                    Seminar.TESTFIELD("Vat. Prod. Posting Group");
+                    //Seminar.TESTFIELD("Vat. Prod. Posting Group");
                     "Seminar Name" := Seminar.Name;
                     "Duration" := Seminar."Seminar Duration";
                     "Seminar Price" := Seminar."Seminar Price";
@@ -305,7 +305,7 @@ table 70103 "Seminar Registration Header"
             end;
 
         }
-        field(31; "Posting No."; Code[20])
+        field(70; "Posting No."; Code[20])
         {
             Caption = 'Posting No.';
         }
@@ -325,23 +325,23 @@ table 70103 "Seminar Registration Header"
             Editable = false;
             Caption = 'No. Printed';
         }
-        field(32; "Shortcut Dimension 1 Code"; Code[20])
+        field(31; "Shortcut Dimension 1 Code"; Code[20])
         {
-            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(1));
+            TableRelation = "Dimension Value"."Code" where("Global Dimension No." = const(1));
             trigger OnValidate()
             begin
                 ValidateShortcutDimCode(1, "Shortcut Dimension 1 Code");
             end;
         }
-        field(33; "Shortcut Dimension 2 Code"; Code[20])
+        field(32; "Shortcut Dimension 2 Code"; Code[20])
         {
-            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2));
+            TableRelation = "Dimension Value"."Code" where("Global Dimension No." = const(2));
             trigger OnValidate()
             begin
                 ValidateShortcutDimCode(2, "Shortcut Dimension 2 Code");
             end;
         }
-        field(34; "Dimension Set ID"; Integer)
+        field(33; "Dimension Set ID"; Integer)
         {
             TableRelation = "Dimension Set Entry"."Dimension Set ID";
             trigger OnLookup()
