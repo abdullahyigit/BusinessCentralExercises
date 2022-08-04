@@ -90,6 +90,17 @@ page 70107 "Seminar Registration List"
                 Image = Costs;
                 ToolTip = 'Executes the Charges action.';
             }
+
+            action(Dimensions)
+            {
+                Image = Dimensions;
+                ApplicationArea = all;
+                ShortcutKey = "Shift + Ctrl + D";
+                trigger OnAction()
+                begin
+                    Rec.ShowDocDim;
+                end;
+            }
         }
         area(Processing)
         {
