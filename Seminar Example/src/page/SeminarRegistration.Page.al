@@ -182,6 +182,17 @@ page 70105 "Seminar Registration"
                 Image = Costs;
                 ToolTip = 'Executes the Charges action.';
             }
+            action(Dimensions)
+            {
+                Image = Dimensions;
+                ApplicationArea = all;
+                ShortcutKey = "Shift + Ctrl + D";
+                trigger OnAction()
+                begin
+                    Rec.ShowDocDim;
+                    CurrPage.SAVERECORD;
+                end;
+            }
         }
         area(Processing)
         {
@@ -207,6 +218,7 @@ page 70105 "Seminar Registration"
                     Promoted = true;
                     RunObject = report "Seminar Reg.-Participant List";
                 }
+
             }
         }
 

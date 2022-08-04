@@ -75,4 +75,20 @@ page 70112 "Posted Seminar Reg. Subform"
             }
         }
     }
+    actions
+    {
+        area(Processing)
+        {
+            action("Dimensions")
+            {
+                ApplicationArea = all;
+                Image = Dimensions;
+                Caption = 'Dimensions';
+                trigger OnAction()
+                begin
+                    Rec.ShowDimensions();
+                end;
+            }
+        }
+    }
 }

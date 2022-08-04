@@ -180,6 +180,16 @@ page 70111 "Posted Seminar Registration"
                 Image = Costs;
                 ToolTip = 'Executes the Charges action.';
             }
+            action("Dimensions")
+            {
+                ApplicationArea = all;
+                Image = Dimensions;
+                Caption = 'Dimensions';
+                trigger OnAction()
+                begin
+                    Rec.ShowDimensions();
+                end;
+            }
         }
         area(Processing)
         {
@@ -196,6 +206,7 @@ page 70111 "Posted Seminar Registration"
                     Navigate.RUN;
                 end;
             }
+
         }
     }
     var

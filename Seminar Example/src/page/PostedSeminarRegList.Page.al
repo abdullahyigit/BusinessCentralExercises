@@ -107,6 +107,35 @@ page 70113 "Posted Seminar Reg. List"
                 Image = Costs;
                 ToolTip = 'Executes the Charges action.';
             }
+            action("Dimensions")
+            {
+                ApplicationArea = all;
+                Image = Dimensions;
+                Caption = 'Dimensions';
+                trigger OnAction()
+                begin
+                    Rec.ShowDimensions();
+                end;
+            }
+        }
+        area(Processing)
+        {
+            action("&Navigate")
+            {
+                ApplicationArea = all;
+                Caption = '&Navigate';
+                Image = Navigate;
+                Promoted = true;
+                PromotedCategory = Process;
+                trigger OnAction()
+                begin
+                    Navigate.SetDoc(Rec."Posting Date", Rec."No.");
+                    Navigate.RUN;
+                end;
+            }
+
         }
     }
+    var
+        Navigate: Page Navigate;
 }
