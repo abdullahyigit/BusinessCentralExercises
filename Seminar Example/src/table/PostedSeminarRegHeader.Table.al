@@ -189,6 +189,7 @@ table 70109 "Posted Seminar Reg. Header"
 
     procedure ShowDimensions()
     begin
+        Message('POSTED HEADER ŞOV');
         DimMgt.ShowDimensionSet("Dimension Set ID", StrSubstNo('%1 %2', TableCaption, "No."));
     end;
 }
