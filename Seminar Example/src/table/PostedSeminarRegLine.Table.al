@@ -111,6 +111,7 @@ table 70110 "Posted Seminar Reg. Line"
 
     procedure ShowDimensions()
     begin
+        Message('POSTED LINE ŞOV');
         DimMgt.ShowDimensionSet("Dimension Set ID", StrSubstNo('%1 %2 %3', TableCaption, "Document No.", "Line No."));
     end;
 }
