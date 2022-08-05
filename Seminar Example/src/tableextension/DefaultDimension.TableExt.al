@@ -11,8 +11,6 @@ tableextension 70001 "DefaultDimension" extends "Default Dimension"
                     Seminar."Global Dimension 1 Code" := NewDimValue;
                 2:
                     Seminar."Global Dimension 2 Code" := NewDimValue;
-                DATABASE::Seminar:
-                    UpdateSeminarGlobalDimCode(GlobalDimCodeNo, "No.", NewDimValue);
             end;
         end;
     end;
