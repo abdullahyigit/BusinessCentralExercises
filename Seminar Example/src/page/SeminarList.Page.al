@@ -126,7 +126,7 @@ page 70103 "Seminar List"
                 }
                 action("Dimensions-Multiple")
                 {
-                    Caption = 'Dimensions-Multile';
+                    Caption = 'Dimensions-Multiple';
                     ApplicationArea = all;
                     trigger OnAction()
                     var
