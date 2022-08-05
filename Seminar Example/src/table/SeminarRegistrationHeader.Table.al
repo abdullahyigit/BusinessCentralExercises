@@ -378,7 +378,7 @@ table 70103 "Seminar Registration Header"
         Text009: Label 'You may have changed a dimension.\\Do you want to update the lines';
         DimMgt: Codeunit DimensionManagement;
 
-    //koda bakS
+    //koda bak
     trigger OnInsert()
     begin
         if "No." = '' then begin
@@ -454,6 +454,7 @@ table 70103 "Seminar Registration Header"
         OldDimSetID: Integer;
         DefaultDimSource: List of [Dictionary of [Integer, Code[20]]];
     begin
+        Message('CREATE DIM');
         SourceCodeSetup.GET;
         DimMgt.AddDimSource(DefaultDimSource, Type1, No1); // Ilter Beye sor
         DimMgt.AddDimSource(DefaultDimSource, Type2, No2);
@@ -461,14 +462,11 @@ table 70103 "Seminar Registration Header"
         "Shortcut Dimension 1 Code" := '';
         "Shortcut Dimension 2 Code" := '';
         OldDimSetID := "Dimension Set ID";
-        "Dimension Set ID" :=
-         DimMgt.GetDefaultDimID(DefaultDimSource,
-         SourceCodeSetup.Seminar,
-         "Shortcut Dimension 1 Code",
-         "Shortcut Dimension 2 Code", 0, 0);
-        IF (OldDimSetID <> "Dimension Set ID") AND
-         SeminarRegLinesExist
-        THEN BEGIN
+        "Dimension Set ID" := DimMgt.GetDefaultDimID(DefaultDimSource,
+            SourceCodeSetup.Seminar,
+            "Shortcut Dimension 1 Code",
+            "Shortcut Dimension 2 Code", 0, 0);
+        IF (OldDimSetID <> "Dimension Set ID") AND SeminarRegLinesExist THEN BEGIN
             MODIFY;
             UpdateAllLineDim("Dimension Set ID", OldDimSetID);
         END;
@@ -479,18 +477,13 @@ table 70103 "Seminar Registration Header"
         OldDimSetID: Integer;
     begin
         OldDimSetID := "Dimension Set ID";
-        DimMgt.ValidateShortcutDimValues(
-         FieldNumber,
-         ShortcutDimCode,
-         "Dimension Set ID");
+        DimMgt.ValidateShortcutDimValues(FieldNumber, ShortcutDimCode, "Dimension Set ID");
         IF "No." <> '' THEN
             MODIFY;
         IF OldDimSetID <> "Dimension Set ID" THEN BEGIN
             MODIFY;
             IF SeminarRegLinesExist THEN
-                UpdateAllLineDim(
-                "Dimension Set ID",
-                OldDimSetID);
+                UpdateAllLineDim("Dimension Set ID", OldDimSetID);
         END;
     end;
 
@@ -501,15 +494,15 @@ table 70103 "Seminar Registration Header"
         OldDimSetID := "Dimension Set ID";
         "Dimension Set ID" :=
          DimMgt.EditDimensionSet(// Ilter Beye sor
-         "Dimension Set ID", "No.",
-         "Shortcut Dimension 1 Code",
-         "Shortcut Dimension 2 Code");
+            "Dimension Set ID", "No.",
+            "Shortcut Dimension 1 Code",
+            "Shortcut Dimension 2 Code");
         IF OldDimSetID <> "Dimension Set ID" THEN BEGIN
             MODIFY;
             IF SeminarRegLinesExist THEN
                 UpdateAllLineDim(
                 "Dimension Set ID",
-                 OldDimSetID);
+                OldDimSetID);
         END;
     end;
 
@@ -517,6 +510,7 @@ table 70103 "Seminar Registration Header"
     var
         NewDimSetID: Integer;
     begin
+        Message('UPDATE ALL LINE');
         IF NewParentDimSetID = OldParentDimSetID THEN
             EXIT;
         IF NOT CONFIRM(Text009) THEN
