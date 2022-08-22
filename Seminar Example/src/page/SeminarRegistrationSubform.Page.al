@@ -82,13 +82,13 @@ page 70106 "Seminar Registration Subform"
                 {
                     ApplicationArea = Dimensions;
                     ToolTip = 'Specifies the code for Shortcut Dimension 1, which is one of two global dimension codes that you set up in the General Ledger Setup window.';
-                    //     Visible = DimVisible1;
+                    Visible = DimVisible1;
                 }
                 field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
                 {
                     ApplicationArea = Dimensions;
                     ToolTip = 'Specifies the code for Shortcut Dimension 2, which is one of two global dimension codes that you set up in the General Ledger Setup window.';
-                    //     Visible = DimVisible2;
+                    Visible = DimVisible2;
                 }
                 field(ShortcutDimCode3; ShortcutDimCode[3])
                 {
@@ -98,7 +98,7 @@ page 70106 "Seminar Registration Subform"
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
                     ToolTip = 'Specifies the value of the ShortcutDimCode[3] field.';
-                    // Visible = DimVisible3;
+                    Visible = DimVisible3;
 
                     trigger OnValidate()
                     begin
@@ -113,7 +113,7 @@ page 70106 "Seminar Registration Subform"
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
                     ToolTip = 'Specifies the value of the ShortcutDimCode[4] field.';
-                    // Visible = DimVisible4;
+                    Visible = DimVisible4;
 
                     trigger OnValidate()
                     begin
@@ -128,7 +128,7 @@ page 70106 "Seminar Registration Subform"
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
                     ToolTip = 'Specifies the value of the ShortcutDimCode[5] field.';
-                    // Visible = DimVisible5;
+                    Visible = DimVisible5;
 
                     trigger OnValidate()
                     begin
@@ -143,7 +143,7 @@ page 70106 "Seminar Registration Subform"
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
                     ToolTip = 'Specifies the value of the ShortcutDimCode[6] field.';
-                    // Visible = DimVisible6;
+                    Visible = DimVisible6;
 
                     trigger OnValidate()
                     begin
@@ -158,7 +158,7 @@ page 70106 "Seminar Registration Subform"
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
                     ToolTip = 'Specifies the value of the ShortcutDimCode[7] field.';
-                    // Visible = DimVisible7;
+                    Visible = DimVisible7;
 
                     trigger OnValidate()
                     begin
@@ -173,7 +173,7 @@ page 70106 "Seminar Registration Subform"
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
                     ToolTip = 'Specifies the value of the ShortcutDimCode[8] field.';
-                    // Visible = DimVisible8;
+                    Visible = DimVisible8;
 
                     trigger OnValidate()
                     begin
@@ -217,10 +217,40 @@ page 70106 "Seminar Registration Subform"
         Clear(ShortcutDimCode);
     end;
 
+    trigger OnOpenPage()
+    begin
+        SetDimensionsVisibility();
+    end;
+
     var
         ShortcutDimCode: array[8] of Code[20];
+        DimVisible1: Boolean;
+        DimVisible2: Boolean;
+        DimVisible3: Boolean;
+        DimVisible4: Boolean;
+        DimVisible5: Boolean;
+        DimVisible6: Boolean;
+        DimVisible7: Boolean;
+        DimVisible8: Boolean;
 
+    local procedure SetDimensionsVisibility()
+    var
+        DimMgt: Codeunit DimensionManagement;
+    begin
+        DimVisible1 := false;
+        DimVisible2 := false;
+        DimVisible3 := false;
+        DimVisible4 := false;
+        DimVisible5 := false;
+        DimVisible6 := false;
+        DimVisible7 := false;
+        DimVisible8 := false;
 
+        DimMgt.UseShortcutDims(
+          DimVisible1, DimVisible2, DimVisible3, DimVisible4, DimVisible5, DimVisible6, DimVisible7, DimVisible8);
+
+        Clear(DimMgt);
+    end;
 
 
 }
