@@ -112,6 +112,7 @@ page 70113 "Posted Seminar Reg. List"
                 ApplicationArea = all;
                 Image = Dimensions;
                 Caption = 'Dimensions';
+                ToolTip = 'Executes the Dimensions action.';
                 trigger OnAction()
                 begin
                     Rec.ShowDimensions();
@@ -127,6 +128,7 @@ page 70113 "Posted Seminar Reg. List"
                 Image = Navigate;
                 Promoted = true;
                 PromotedCategory = Process;
+                ToolTip = 'Executes the &Navigate action.';
                 trigger OnAction()
                 begin
                     Navigate.SetDoc(Rec."Posting Date", Rec."No.");

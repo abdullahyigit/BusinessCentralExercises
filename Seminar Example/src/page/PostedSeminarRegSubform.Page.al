@@ -84,6 +84,7 @@ page 70112 "Posted Seminar Reg. Subform"
                 ApplicationArea = all;
                 Image = Dimensions;
                 Caption = 'Dimensions';
+                ToolTip = 'Executes the Dimensions action.';
                 trigger OnAction()
                 begin
                     Rec.ShowDimensions();

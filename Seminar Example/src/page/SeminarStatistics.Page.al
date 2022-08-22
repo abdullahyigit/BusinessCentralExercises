@@ -20,22 +20,26 @@ page 70115 "Seminar Statistics"
                         {
                             ApplicationArea = All;
                             Caption = 'Seminar Date Name';
+                            ToolTip = 'Specifies the value of the Seminar Date Name field.';
 
                         }
                         field("TotalPrice[1]"; TotalPrice[1])
                         {
                             ApplicationArea = All;
                             Caption = 'Total Price';
+                            ToolTip = 'Specifies the value of the Total Price field.';
                         }
                         field("TotalPriceChargeable[1]"; TotalPriceChargeable[1])
                         {
                             ApplicationArea = All;
                             Caption = 'Total Price Chargeable';
+                            ToolTip = 'Specifies the value of the Total Price Chargeable field.';
                         }
                         field("TotalPriceNotChargeable[1]"; TotalPriceNotChargeable[1])
                         {
                             ApplicationArea = All;
                             Caption = 'Total Price Not Chargeable';
+                            ToolTip = 'Specifies the value of the Total Price Not Chargeable field.';
                         }
                     }
                     group("This Year")
@@ -44,21 +48,25 @@ page 70115 "Seminar Statistics"
                         {
                             ApplicationArea = All;
                             Caption = 'Seminar Date Name';
+                            ToolTip = 'Specifies the value of the Seminar Date Name field.';
                         }
                         field("TotalPrice[2]"; TotalPrice[2])
                         {
                             ApplicationArea = All;
                             Caption = 'Total Price';
+                            ToolTip = 'Specifies the value of the Total Price field.';
                         }
                         field("TotalPriceChargeable[2]"; TotalPriceChargeable[2])
                         {
                             ApplicationArea = All;
                             Caption = 'Total Price Chargeable';
+                            ToolTip = 'Specifies the value of the Total Price Chargeable field.';
                         }
                         field("TotalPriceNotChargeable[2]"; TotalPriceNotChargeable[2])
                         {
                             ApplicationArea = All;
                             Caption = 'Total Price Not Chargeable';
+                            ToolTip = 'Specifies the value of the Total Price Not Chargeable field.';
                         }
                     }
                     group("Last Year")
@@ -67,21 +75,25 @@ page 70115 "Seminar Statistics"
                         {
                             ApplicationArea = All;
                             Caption = 'Seminar Date Name';
+                            ToolTip = 'Specifies the value of the Seminar Date Name field.';
                         }
                         field("TotalPrice[3]"; TotalPrice[3])
                         {
                             ApplicationArea = All;
                             Caption = 'Total Price';
+                            ToolTip = 'Specifies the value of the Total Price field.';
                         }
                         field("TotalPriceChargeable[3]"; TotalPriceChargeable[3])
                         {
                             ApplicationArea = All;
                             Caption = 'Total Price Chargeable';
+                            ToolTip = 'Specifies the value of the Total Price Chargeable field.';
                         }
                         field("TotalPriceNotChargeable[3]"; TotalPriceNotChargeable[3])
                         {
                             ApplicationArea = All;
                             Caption = 'Total Price Not Chargeable';
+                            ToolTip = 'Specifies the value of the Total Price Not Chargeable field.';
                         }
                     }
                     group("To Date")
@@ -90,21 +102,25 @@ page 70115 "Seminar Statistics"
                         {
                             ApplicationArea = All;
                             Caption = 'Seminar Date Name';
+                            ToolTip = 'Specifies the value of the Seminar Date Name field.';
                         }
                         field("TotalPrice[4]"; TotalPrice[4])
                         {
                             ApplicationArea = All;
                             Caption = 'Total Price';
+                            ToolTip = 'Specifies the value of the Total Price field.';
                         }
                         field("TotalPriceChargeable[4]"; TotalPriceChargeable[4])
                         {
                             ApplicationArea = All;
                             Caption = 'Total Price Chargeable';
+                            ToolTip = 'Specifies the value of the Total Price Chargeable field.';
                         }
                         field("TotalPriceNotChargeable[4]"; TotalPriceNotChargeable[4])
                         {
                             ApplicationArea = All;
                             Caption = 'Total Price Not Chargeable';
+                            ToolTip = 'Specifies the value of the Total Price Not Chargeable field.';
                         }
                     }
                 }

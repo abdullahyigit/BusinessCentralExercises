@@ -26,15 +26,18 @@ page 70116 "Seminar Report Selection"
                 field(Sequence; Rec.Sequence)
                 {
                     ApplicationArea = all;
+                    ToolTip = 'Specifies the value of the Sequence field.';
                 }
                 field("Report ID"; Rec."Report ID")
                 {
                     ApplicationArea = all;
+                    ToolTip = 'Specifies the value of the Report ID field.';
                 }
                 field("Report Name"; Rec."Report Name")
                 {
                     ApplicationArea = all;
                     DrillDown = false;
+                    ToolTip = 'Specifies the value of the Report Name field.';
                 }
             }
         }
@@ -43,10 +46,12 @@ page 70116 "Seminar Report Selection"
             systempart(RecordLinks; Links)
             {
                 Visible = false;
+                ApplicationArea = All;
             }
             systempart(Notes; Notes)
             {
                 Visible = false;
+                ApplicationArea = All;
             }
         }
     }
@@ -58,6 +63,7 @@ page 70116 "Seminar Report Selection"
             action(ActionName)
             {
                 ApplicationArea = All;
+                ToolTip = 'Executes the ActionName action.';
 
                 trigger OnAction()
                 begin

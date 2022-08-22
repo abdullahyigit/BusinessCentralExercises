@@ -106,6 +106,7 @@ report 70000 "Seminar Reg.-Participant List"
                     field(HideDetails; HideDetails)
                     {
                         ApplicationArea = All;
+                        ToolTip = 'Specifies the value of the HideDetails field.';
 
                     }
 
@@ -120,6 +121,7 @@ report 70000 "Seminar Reg.-Participant List"
                 action(ActionName)
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Executes the ActionName action.';
 
                 }
             }

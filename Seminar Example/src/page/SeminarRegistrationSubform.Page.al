@@ -97,6 +97,7 @@ page 70106 "Seminar Registration Subform"
                     TableRelation = "Dimension Value"."Code" WHERE("Global Dimension No." = CONST(3),
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
+                    ToolTip = 'Specifies the value of the ShortcutDimCode[3] field.';
                     // Visible = DimVisible3;
 
                     trigger OnValidate()
@@ -111,6 +112,7 @@ page 70106 "Seminar Registration Subform"
                     TableRelation = "Dimension Value"."Code" WHERE("Global Dimension No." = CONST(4),
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
+                    ToolTip = 'Specifies the value of the ShortcutDimCode[4] field.';
                     // Visible = DimVisible4;
 
                     trigger OnValidate()
@@ -125,6 +127,7 @@ page 70106 "Seminar Registration Subform"
                     TableRelation = "Dimension Value"."Code" WHERE("Global Dimension No." = CONST(5),
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
+                    ToolTip = 'Specifies the value of the ShortcutDimCode[5] field.';
                     // Visible = DimVisible5;
 
                     trigger OnValidate()
@@ -139,6 +142,7 @@ page 70106 "Seminar Registration Subform"
                     TableRelation = "Dimension Value"."Code" WHERE("Global Dimension No." = CONST(6),
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
+                    ToolTip = 'Specifies the value of the ShortcutDimCode[6] field.';
                     // Visible = DimVisible6;
 
                     trigger OnValidate()
@@ -153,6 +157,7 @@ page 70106 "Seminar Registration Subform"
                     TableRelation = "Dimension Value"."Code" WHERE("Global Dimension No." = CONST(7),
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
+                    ToolTip = 'Specifies the value of the ShortcutDimCode[7] field.';
                     // Visible = DimVisible7;
 
                     trigger OnValidate()
@@ -167,6 +172,7 @@ page 70106 "Seminar Registration Subform"
                     TableRelation = "Dimension Value"."Code" WHERE("Global Dimension No." = CONST(8),
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
+                    ToolTip = 'Specifies the value of the ShortcutDimCode[8] field.';
                     // Visible = DimVisible8;
 
                     trigger OnValidate()
@@ -190,6 +196,7 @@ page 70106 "Seminar Registration Subform"
                     ApplicationArea = all;
                     Image = Dimensions;
                     ShortcutKey = "Shift+Ctrl+D";
+                    ToolTip = 'Executes the Dimensions action.';
                     trigger OnAction()
                     begin
                         Rec.ShowDimensions();

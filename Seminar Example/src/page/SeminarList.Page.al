@@ -73,6 +73,7 @@ page 70103 "Seminar List"
                 RunObject = page "Seminar Registration";
                 RunPageLink = "Seminar No." = field("No.");
                 ApplicationArea = All;
+                ToolTip = 'Executes the Seminar Registration action.';
             }
         }
         area(Processing)
@@ -92,6 +93,7 @@ page 70103 "Seminar List"
                     RunObject = page "Seminar Ledger Entries";
                     RunPageLink = "Seminar No." = field("No.");
                     ApplicationArea = all;
+                    ToolTip = 'Executes the Ledger Entries action.';
                 }
                 action("Registrations")
                 {
@@ -102,6 +104,7 @@ page 70103 "Seminar List"
                     RunObject = page "Seminar Registration List";
                     RunPageLink = "Seminar No." = field("No.");
                     ApplicationArea = all;
+                    ToolTip = 'Executes the &Registrations action.';
                 }
                 action("&Statistics")
                 {
@@ -114,6 +117,7 @@ page 70103 "Seminar List"
                     RunObject = page "Seminar Statistics";
                     RunPageLink = "No." = FIELD("No.");
                     ApplicationArea = all;
+                    ToolTip = 'Executes the &Statistics action.';
                 }
                 action("Dimensions-Single")
                 {
@@ -123,11 +127,13 @@ page 70103 "Seminar List"
                     ShortcutKey = "Shift+Ctrl+D";
                     RunObject = page "Default Dimensions";
                     RunPageLink = "Table ID" = const(70101), "No." = field("No.");
+                    ToolTip = 'Executes the Dimensions-Single action.';
                 }
                 action("Dimensions-Multiple")
                 {
                     Caption = 'Dimensions-Multiple';
                     ApplicationArea = all;
+                    ToolTip = 'Executes the Dimensions-Multiple action.';
                     trigger OnAction()
                     var
                         Seminar: Record Seminar;

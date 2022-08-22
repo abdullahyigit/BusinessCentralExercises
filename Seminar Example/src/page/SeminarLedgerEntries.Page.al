@@ -112,10 +112,12 @@ page 70108 "Seminar Ledger Entries"
                 field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ApplicationArea = all;
+                    ToolTip = 'Specifies the value of the Global Dimension 1 Code field.';
                 }
                 field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
                     ApplicationArea = all;
+                    ToolTip = 'Specifies the value of the Global Dimension 2 Code field.';
                 }
                 field("Entry No."; Rec."Entry No.")
                 {
@@ -151,6 +153,7 @@ page 70108 "Seminar Ledger Entries"
                 Image = Navigate;
                 Promoted = true;
                 PromotedCategory = Process;
+                ToolTip = 'Executes the &Navigate action.';
                 trigger OnAction()
                 begin
                     Navigate.SetDoc(Rec."Posting Date", Rec."Document No.");
@@ -163,6 +166,7 @@ page 70108 "Seminar Ledger Entries"
                 ApplicationArea = all;
                 Image = Dimensions;
                 Caption = 'Dimensions';
+                ToolTip = 'Executes the Dimensions action.';
                 trigger OnAction()
                 begin
                     Rec.ShowDimensions();

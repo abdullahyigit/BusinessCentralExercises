@@ -108,21 +108,25 @@ report 70001 "Create Seminar Invoices"
                     {
                         ApplicationArea = all;
                         Caption = 'Posting Date';
+                        ToolTip = 'Specifies the value of the Posting Date field.';
                     }
                     field(DocDateReq; DocDateReq)
                     {
                         ApplicationArea = all;
                         Caption = 'Document Date';
+                        ToolTip = 'Specifies the value of the Document Date field.';
                     }
                     field(CalcInvoiceDiscount; CalcInvoiceDiscount)
                     {
                         ApplicationArea = all;
                         Caption = 'Calc. Inv. Discount';
+                        ToolTip = 'Specifies the value of the Calc. Inv. Discount field.';
                     }
                     field(PostInvoices; PostInvoices)
                     {
                         ApplicationArea = all;
                         Caption = 'Post Invoices';
+                        ToolTip = 'Specifies the value of the Post Invoices field.';
                     }
                 }
             }

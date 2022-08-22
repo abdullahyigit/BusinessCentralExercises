@@ -93,6 +93,7 @@ page 70102 "Seminar Card"
                 RunObject = page "Seminar Registration";
                 RunPageLink = "Seminar No." = field("No.");
                 ApplicationArea = All;
+                ToolTip = 'Executes the Seminar Registration action.';
             }
         }
         area(Processing)
@@ -110,6 +111,7 @@ page 70102 "Seminar Card"
                     RunObject = page "Seminar Ledger Entries";
                     RunPageLink = "Seminar No." = field("No.");
                     ApplicationArea = all;
+                    ToolTip = 'Executes the Ledger Entries action.';
                 }
 
                 action("&Statistics")
@@ -123,6 +125,7 @@ page 70102 "Seminar Card"
                     RunObject = page "Seminar Statistics";
                     RunPageLink = "No." = FIELD("No.");
                     ApplicationArea = all;
+                    ToolTip = 'Executes the &Statistics action.';
                 }
                 action("Dimensions")
                 {
@@ -132,6 +135,7 @@ page 70102 "Seminar Card"
                     ShortcutKey = "Shift+Ctrl+D";
                     RunObject = page "Default Dimensions";
                     RunPageLink = "Table ID" = const(70101), "No." = field("No.");
+                    ToolTip = 'Executes the Dimensions action.';
                 }
             }
             group("&Registrations")
@@ -145,6 +149,7 @@ page 70102 "Seminar Card"
                     RunObject = page "Seminar Registration List";
                     RunPageLink = "Seminar No." = field("No.");
                     ApplicationArea = all;
+                    ToolTip = 'Executes the &Registrations action.';
                 }
             }
         }

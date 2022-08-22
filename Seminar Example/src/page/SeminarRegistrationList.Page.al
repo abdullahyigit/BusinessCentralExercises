@@ -96,6 +96,7 @@ page 70107 "Seminar Registration List"
                 Image = Dimensions;
                 ApplicationArea = all;
                 ShortcutKey = "Shift + Ctrl + D";
+                ToolTip = 'Executes the Dimensions action.';
                 trigger OnAction()
                 begin
                     Rec.ShowDocDim;
@@ -115,6 +116,7 @@ page 70107 "Seminar Registration List"
                     PromotedCategory = Process;
                     ShortcutKey = F9;
                     RunObject = codeunit "Seminar-Post (Yes/No)";
+                    ToolTip = 'Executes the P&ost action.';
                 }
                 action("Show My Report")
                 {
@@ -123,6 +125,7 @@ page 70107 "Seminar Registration List"
                     Caption = 'Show My Report';
                     Promoted = true;
                     PromotedCategory = Process;
+                    ToolTip = 'Executes the Show My Report action.';
                     trigger OnAction()
                     begin
                         MyReport.Run();
