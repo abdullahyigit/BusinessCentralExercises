@@ -95,12 +95,14 @@ table 70101 "Seminar"
         field(14; "Date Filter"; Date)
         {
             FieldClass = FlowFilter;
+            Caption = 'Date Filter';
         }
         field(15; "Charge Type Filter"; Option)
         {
             OptionCaption = 'Instructor, Room, Participant, Charge';
             OptionMembers = Instructor,Room,Participant,Charge;
             FieldClass = FlowFilter;
+            Caption = 'Charge Type Filter';
         }
         field(16; "Total Price"; Decimal)
         {
@@ -112,6 +114,7 @@ table 70101 "Seminar"
             "Posting Date" = field("Date Filter"),
             "Charge Type" = field("Charge Type Filter")
             ));
+            Caption = 'Total Price';
         }
         field(17; "Total Price (Chargeable)"; Decimal)
         {
@@ -124,6 +127,7 @@ table 70101 "Seminar"
             "Charge Type" = field("Charge Type Filter"),
             Chargeable = const(true)
             ));
+            Caption = 'Total Price (Chargeable)';
 
         }
         field(18; "Total Price (Not Chargeable)"; Decimal)
@@ -137,11 +141,13 @@ table 70101 "Seminar"
             "Charge Type" = field("Charge Type Filter"),
             Chargeable = const(false)
             ));
+            Caption = 'Total Price (Not Chargeable)';
         }
         field(19; "Global Dimension 1 Code"; Code[20])
         {
             TableRelation = "Dimension Value"."Code" where("Global Dimension No." = const(1));
             CaptionClass = '1,1,1';
+            Caption = 'Global Dimension 1 Code';
             trigger OnValidate()
             begin
                 ValidateShortcutDimCode(1, "Global Dimension 1 Code");
@@ -151,6 +157,7 @@ table 70101 "Seminar"
         {
             TableRelation = "Dimension Value"."Code" where("Global Dimension No." = const(2));
             CaptionClass = '1,1,2';
+            Caption = 'Global Dimension 2 Code';
             trigger OnValidate()
             begin
                 ValidateShortcutDimCode(2, "Global Dimension 2 Code");

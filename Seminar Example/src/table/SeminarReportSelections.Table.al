@@ -7,15 +7,18 @@ table 70112 "Seminar Report Selections"
         {
             OptionMembers = "Registration";
             OptionCaption = 'Registration';
+            Caption = 'Usage';
         }
         field(2; Sequence; Code[10])
         {
             Numeric = true;
+            Caption = 'Sequence';
         }
 
         field(3; "Report ID"; Integer)
         {
             TableRelation = AllObjWithCaption."Object ID" where("Object Type" = const("Report"));
+            Caption = 'Report ID';
             trigger OnValidate()
             begin
                 CalcFields("Report Name");
@@ -28,6 +31,7 @@ table 70112 "Seminar Report Selections"
             where("Object Type" = const("Report"),
                 "Object ID" = field("Report ID")
             ));
+            Caption = 'Report Name';
         }
     }
     keys
