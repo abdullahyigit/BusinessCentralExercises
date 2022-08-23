@@ -430,11 +430,6 @@ table 70103 "Seminar Registration Header"
         END;
     end;
 
-    trigger OnRename()
-    begin
-
-    end;
-
     local procedure InitRecord()
     begin
         IF "Posting Date" = 0D THEN
@@ -496,7 +491,7 @@ table 70103 "Seminar Registration Header"
     begin
         OldDimSetID := "Dimension Set ID";
         "Dimension Set ID" :=
-         DimMgt.EditDimensionSet(// Ilter Beye sor
+         DimMgt.EditDimensionSet(
             "Dimension Set ID", "No.",
             "Shortcut Dimension 1 Code",
             "Shortcut Dimension 2 Code");

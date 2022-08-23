@@ -22,11 +22,6 @@ pageextension 70401 "ResourceList" extends "Resource List"
         }
     }
 
-    actions
-    {
-        // Add changes to page actions here
-    }
-
     var
         [InDataSet]
         ShowType: Boolean;

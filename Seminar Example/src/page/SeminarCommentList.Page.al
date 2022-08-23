@@ -23,31 +23,24 @@ page 70104 "Seminar Comment List"
                     ApplicationArea = All;
                     Caption = 'No.';
                     ToolTip = 'Specifies the value of the No. field.';
-
-
                 }
                 field("Date"; Rec."Date")
                 {
                     ApplicationArea = All;
                     Caption = 'Date';
                     ToolTip = 'Specifies the value of the Date field.';
-
                 }
                 field("Comment"; Rec."Comment")
                 {
                     ApplicationArea = All;
                     Caption = 'Comment';
                     ToolTip = 'Specifies the value of the Comment field.';
-
-
                 }
                 field("Code"; Rec."Code")
                 {
                     ApplicationArea = All;
                     Caption = 'Code';
                     ToolTip = 'Specifies the value of the Code field.';
-
-
                 }
             }
         }

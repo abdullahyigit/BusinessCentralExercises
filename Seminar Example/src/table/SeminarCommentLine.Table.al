@@ -16,32 +16,26 @@ table 70104 "Seminar Comment Line"
         field(2; "No."; Code[20])
         {
             CaptionML = ENU = 'No.';
-
         }
         field(3; "Line No."; Integer)
         {
             CaptionML = ENU = 'Line No.';
-
         }
         field(4; "Date"; Date)
         {
             CaptionML = ENU = 'Date';
-
         }
         field(5; "Code"; Code[20])
         {
             CaptionML = ENU = 'Code';
-
         }
         field(6; "Comment"; Text[80])
         {
             CaptionML = ENU = 'Comment';
-
         }
         field(7; "Document Line No."; Integer)
         {
             CaptionML = ENU = 'Document Line No.';
-
         }
     }
 
@@ -64,27 +58,4 @@ table 70104 "Seminar Comment Line"
         IF NOT SeminarCommentLine.FIND('-') THEN
             Date := WORKDATE;
     END;
-
-    trigger OnInsert()
-    begin
-
-    end;
-
-    trigger OnModify()
-    begin
-
-    end;
-
-    trigger OnDelete()
-    begin
-
-    end;
-
-    trigger OnRename()
-    begin
-
-    end;
-
-
-
 }

@@ -76,7 +76,7 @@ page 70103 "Seminar List"
                 ToolTip = 'Executes the Seminar Registration action.';
             }
         }
-        area(Processing)
+        area(Navigation)
         {
             group(Seminar)
             {

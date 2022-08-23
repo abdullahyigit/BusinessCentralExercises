@@ -5,6 +5,7 @@ page 70116 "Seminar Report Selection"
     UsageCategory = Administration;
     SourceTable = "Seminar Report Selections";
     SaveValues = true;
+    Caption = 'Seminar Report Selection';
 
     layout
     {

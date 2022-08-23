@@ -86,13 +86,7 @@ report 70000 "Seminar Reg.-Participant List"
             end;
 
         }
-
-
-
-
     }
-
-
 
     requestpage
     {
@@ -113,34 +107,11 @@ report 70000 "Seminar Reg.-Participant List"
                 }
             }
         }
-
-        actions
-        {
-            area(processing)
-            {
-                action(ActionName)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Executes the ActionName action.';
-
-                }
-            }
-        }
     }
-
     labels
     {
         LabelName = 'Seminar Registration Header', Comment = 'Seminar Registration Header';
     }
-
-    // rendering
-    // {
-    //     layout(LayoutName)
-    //     {
-    //         Type = RDLC;
-    //         LayoutFile = 'mylayout.rdl';
-    //     }
-    // }
 
     var
         HideDetails: Boolean;

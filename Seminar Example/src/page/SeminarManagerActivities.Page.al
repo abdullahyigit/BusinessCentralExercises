@@ -23,6 +23,18 @@ page 70117 "Seminar Manager Activities"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Registered field.';
                 }
+
+                actions
+                {
+                    action(New)
+                    {
+                        Caption = 'New';
+                        ApplicationArea = All;
+                        RunPageMode = Create;
+                        RunObject = page "Seminar Registration";
+                        ToolTip = 'Executes the Create action.';
+                    }
+                }
             }
             cuegroup("For Posting")
             {
@@ -38,21 +50,11 @@ page 70117 "Seminar Manager Activities"
 
     actions
     {
-        area(Processing)
-        {
-            action(Create)
-            {
-                Caption = 'Create';
-                ApplicationArea = All;
-                RunPageMode = Create;
-                RunObject = page "Seminar Registration";
-                ToolTip = 'Executes the Create action.';
-            }
-        }
     }
 
     var
         myInt: Integer;
+
 
     trigger OnOpenPage()
     begin

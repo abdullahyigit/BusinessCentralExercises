@@ -26,18 +26,14 @@ page 70119 "Seminar Manager Role Center"
                 part("My Seminars"; "My Seminars")
                 {
                     ApplicationArea = All;
-
                 }
                 part("My Customers"; "My Customers")
                 {
                     ApplicationArea = All;
-
                 }
-                //part("Connect Online";)
                 systempart(MyNotes; MyNotes)
                 {
                     ApplicationArea = All;
-
                 }
             }
         }

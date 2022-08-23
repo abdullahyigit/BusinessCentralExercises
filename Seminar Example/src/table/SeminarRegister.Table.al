@@ -51,28 +51,4 @@ table 70107 "Seminar Register"
         key(Key3; "Source Code", "Creation Date")
         { }
     }
-
-    var
-        myInt: Integer;
-
-    trigger OnInsert()
-    begin
-
-    end;
-
-    trigger OnModify()
-    begin
-
-    end;
-
-    trigger OnDelete()
-    begin
-
-    end;
-
-    trigger OnRename()
-    begin
-
-    end;
-
 }

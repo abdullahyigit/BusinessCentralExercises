@@ -8,7 +8,6 @@ page 70110 "Seminar Details FactBox"
     {
         area(Content)
         {
-
             field("No."; Rec."No.")
             {
                 ApplicationArea = All;

@@ -174,23 +174,8 @@ table 70105 "Seminar Charge"
         ResourceUofM: Record "Resource Unit of Measure";
         Resource: Record Resource;
 
-    trigger OnInsert()
-    begin
-    end;
-
-    trigger OnModify()
-    begin
-
-    end;
-
     trigger OnDelete()
     begin
         TESTFIELD(Registered, FALSE);
     end;
-
-    trigger OnRename()
-    begin
-
-    end;
-
 }

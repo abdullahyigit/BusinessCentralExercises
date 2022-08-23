@@ -96,7 +96,7 @@ page 70102 "Seminar Card"
                 ToolTip = 'Executes the Seminar Registration action.';
             }
         }
-        area(Processing)
+        area(Navigation)
         {
             group(Seminar)
             {

@@ -87,7 +87,4 @@ page 70100 "Seminar Registers"
 
         }
     }
-
-    var
-        myInt: Integer;
 }

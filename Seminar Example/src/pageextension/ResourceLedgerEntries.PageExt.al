@@ -16,12 +16,4 @@ pageextension 70403 "ResourceLedgerEntries" extends "Resource Ledger Entries"
             }
         }
     }
-
-    actions
-    {
-        // Add changes to page actions here
-    }
-
-    var
-        myInt: Integer;
 }

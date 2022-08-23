@@ -10,7 +10,4 @@ codeunit 70009 "Seminar Registration-Printed"
         COMMIT;
 
     end;
-
-    var
-        myInt: Integer;
 }

@@ -4,6 +4,7 @@ page 70115 "Seminar Statistics"
     SourceTable = Seminar;
     LinksAllowed = false;
     Editable = false;
+    Caption = 'Seminar Statistics';
 
     layout
     {
@@ -127,12 +128,6 @@ page 70115 "Seminar Statistics"
             }
         }
     }
-
-    actions
-    {
-    }
-
-
 
     trigger OnAfterGetRecord()
     begin
